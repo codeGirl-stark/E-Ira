@@ -51,7 +51,7 @@
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
                     <p class="mb-4">Femmes</p>
-                    {% if homme == 0 %}
+                    {% if femme == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{femme}}</p>
@@ -64,8 +64,8 @@
               <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
                 <div class="card card-light-blue">
                   <div class="card-body ">
-                    <p class="mb-4">Patients de moins de 25ans</p>
-                    {% if homme == 0 %}
+                    <p class="mb-4">Patients de moins de 60ans</p>
+                    {% if ado == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{ado}}</p>
@@ -76,8 +76,8 @@
               <div class="col-md-6 stretch-card transparent">
                 <div class="card card-light-danger">
                   <div class="card-body">
-                    <p class="mb-4">Patients de 25ans et plus</p>
-                    {% if homme == 0 %}
+                    <p class="mb-4">Patients de plus de 60ans</p>
+                    {% if adulte == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{adulte}}</p>

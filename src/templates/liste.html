@@ -9,8 +9,7 @@
         <div class="content-wrapper">
           <div class="row">
             <div class="row">
-                <h4 class="card-title ml-3">Bienvenue D </h4>
-                <h4 class="card-title text-uppercase ml-1"> {{ medecin }}</h4>
+                <h4 class="card-title ml-3">Bienvenue {{ medecin }}</h4>
             </div>
             <div class="col-lg-12 grid-margin stretch-card">
               <div class="card">
@@ -58,14 +57,14 @@
                                         <td>{{ dossier.sexe }}</td>
                                         <td class="text-wrap col-3" width="10%">{{ dossier.diagnostic }}</td>
                                         <td>
-                                            <a href="{% url 'detail' dossier.id %}" class="">
-                                                <img src="{% static "eIra/images/details.png" %}" alt="details image" style="width:13%">
+                                            <a href="{% url 'detail' dossier.id %}" class="mr-3">
+                                                <img src="{% static "eIra/images/details.png" %}" alt="details image" style="width:14%">
                                             </a>
                                             <a href="{% url 'update' dossier.id %}" class="">
                                                 <img src="{% static "eIra/images/modifier.svg" %}" alt="update image" style="width:13%">
                                             </a>
                                             <button type="submit" name="delete" value="{{ dossier.numDossier}}" class="btn">
-                                                <img src="{% static "eIra/images/supprimer.svg" %}" alt="delete image" style="width:70%">
+                                                <img src="{% static "eIra/images/supprimer.svg" %}" alt="delete image" style="width:80%">
                                             </button>
                                         </td>
                                         </tr>

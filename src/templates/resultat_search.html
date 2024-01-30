@@ -39,20 +39,16 @@
                     <tr>
                     <td class="py-1">{{ patient.numDossier }}</td>
                     <td>{{ patient.identite}}</td>
-                    <td>{{ patient.diagnostic }}</td>
+                    <td class="text-wrap col-3" width="10%">{{ patient.diagnostic }}</td>
                     <td>
-                        <a href="{% url 'detail' patient.id %}">
-                            <img src="{% static "eIra/images/details.png" %}" alt="details image">
+                        <a href="{% url 'detail' patient.id %}" class="mr-3">
+                            <img src="{% static "eIra/images/details.png" %}" alt="details image" style="width:14%">
                         </a>
-                    </td>
-                    <td>
-                    <a href="{% url 'update' patient.id %}" class="">
-                        <img src="{% static "eIra/images/modifier.svg" %}" alt="update image" >
-                    </a>
-                    </td>
-                    <td>
+                        <a href="{% url 'update' patient.id %}" class="">
+                            <img src="{% static "eIra/images/modifier.svg" %}" alt="update image" style="width:13%">
+                        </a>
                         <button type="submit" name="delete" value="{{ patient.numDossier}}" class="btn">
-                            <img src="{% static "eIra/images/supprimer.svg" %}" alt="delete image">
+                            <img src="{% static "eIra/images/supprimer.svg" %}" alt="delete image" style="width:80%">
                         </button>
                     </td>
                     </tr>

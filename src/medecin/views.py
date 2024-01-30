@@ -24,8 +24,8 @@ def connect(request) :
 
 def stat (request) :
     
-    age_ado = (0, 24)
-    age_adultes = (25, 100)
+    age_ado = (0, 59)
+    age_adultes = (60, 150)
     
     medecin = get_object_or_404(Medecin, is_active=True)
     patients = DossierMedical.objects.filter(medecin=medecin.id).count()

@@ -42,20 +42,16 @@
                                         <tr>
                                         <td class="py-1">{{ visite.numDossier }}</td>
                                         <td>{{ visite.identite}}</td>
-                                        <td>{{ visite.diagnostic }}</td>
+                                        <td class="text-wrap col-3" width="10%">{{ visite.diagnostic }}</td>
                                         <td>
-                                            <a href="{% url 'detail' visite.id %}" class="">
-                                                <img src="{% static "eIra/images/details.png" %}" alt="details image">
+                                            <a href="{% url 'detail' visite.id %}" class="mr-3">
+                                                <img src="{% static "eIra/images/details.png" %}" alt="details image" style="width:14%">
                                             </a>
-                                        </td>
-                                        <td>
-                                        <a href="{% url 'update' visite.id %}" class="">
-                                            <img src="{% static "eIra/images/modifier.svg" %}" alt="update image" >
-                                        </a>
-                                        </td>
-                                        <td>
+                                            <a href="{% url 'update' visite.id %}" class="">
+                                                <img src="{% static "eIra/images/modifier.svg" %}" alt="update image" style="width:13%">
+                                            </a>
                                             <button type="submit" name="delete" value="{{ visite.numDossier}}" class="btn">
-                                                <img src="{% static "eIra/images/supprimer.svg" %}" alt="delete image">
+                                                <img src="{% static "eIra/images/supprimer.svg" %}" alt="delete image" style="width:80%">
                                             </button>
                                         </td>
                                         </tr>
