@@ -1,0 +1,51 @@
+{% load static %}
+
+
+ <!-- partial:partials/_sidebar.html -->
+ <nav class="sidebar sidebar-offcanvas" id="sidebar">
+  
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#patients" aria-expanded="false" aria-controls="patients">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Vos patients</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="patients">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{% url 'liste' %}">Liste des Patients</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'addDossier' %}">Nouveau Patient</a></li>
+              </ul>
+            </div>
+        </li>
+
+     
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#rdv" aria-expanded="false" aria-controls="rdv">
+          <i class="icon-bar-graph menu-icon"></i>
+          <span class="menu-title">Vos Rendez-vous</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="rdv">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% url 'visitesJour' %}">Rendez-vous du jour</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'listeVisite' %}">Prochains</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#compte" aria-expanded="false" aria-controls="compte">
+          <i class="icon-head menu-icon"></i>
+          <span class="menu-title">Votre compte</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="compte">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% url 'stat' %}">Vos statistiques</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'deconnect' %}">Se déconnecter</a></li>
+          </ul>
+        </div>
+      </li>
+
+  </nav>

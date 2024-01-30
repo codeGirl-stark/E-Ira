@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>E-Ira</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'eIra/images/favicon.ico' %}" rel="icon">
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static "eIra/vendors/feather/feather.css" %}">
+  <link rel="stylesheet" href="{% static "eIra/vendors/ti-icons/css/themify-icons.css" %}">
+  <link rel="stylesheet" href="{% static "eIra/vendors/css/vendor.bundle.base.css" %}">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="{% static "eIra/vendors/datatables.net-bs4/dataTables.bootstrap4.css" %}">
+  <link rel="stylesheet" href="{% static "eIra/vendors/ti-icons/css/themify-icons.css" %}">
+  <link rel="stylesheet" type="text/css" href="{% static "eIra/js/select.dataTables.min.css" %}">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static "eIra/css/vertical-layout-light/style.css" %}">
+</head>
+
+<body>
+    <!--inclure la navbar-->
+    {% include "dashboard/includes/header.html" %}
+
+    {% include "dashboard/includes/navigation.html" %}
+
+    {% block content %}
+    {% endblock %}
+
+
+    <!--inclure le footer-->
+    {% include "dashboard/includes/footer.html" %}

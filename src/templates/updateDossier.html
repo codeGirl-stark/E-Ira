@@ -1,0 +1,214 @@
+{% extends 'dashboard/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+ <!-- partial -->
+ <div class="main-panel">        
+    <div class="content-wrapper">
+      <div class="row">
+        <a href="{% url 'liste' %}">
+            <img src="{% static "eIra/images/fleche-gauche.png" %}" alt="retour image" style="width:5%">
+        </a> 
+        <div class="col-12 grid-margin stretch-card">
+          <div class="card">
+            <div class="card-body">
+    <form method="POST" action="" class="forms-sample m-10">
+        {% csrf_token %}
+
+        <h1 class="card-title">Modifier les informations du Patient {{dossier.identite}}</h1>
+    
+        <h4>Patient</h4>
+        <div class="form-row form-group">
+            <input class="form-control" type="hidden" name="id" value="{{dossier.id}}" required>
+            <div class="col">
+                <label for="numeroIdent">Numéro du Dossier :</label>
+                <input class="form-control" type="text" id="numeroident" name="num" value="{{dossier.numDossier}}" readonly="true">
+            </div>
+            <div class="col">
+                <label for="nomPatient">Identité du Patient :</label>
+                <input class="form-control" type="text" id="nomPatient" name="identite" value="{{dossier.identite}}" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleSelectGender">Sexe</label>
+                <select  name="sexe" class="form-control" id="exampleSelectGender" required>
+                    <option value="M" {% if dossier.sexe == 'M' %}selected{% endif %}>Masculin</option>
+                    <option value="F" {% if dossier.sexe == 'F' %}selected{% endif %}>Féminin</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="Naissance">Année de naissance :</label>
+                <input class="form-control" type="number" id="Naissance" name="nais" min="1900" max="2024" value="{{naissance}}" required>
+            </div>
+            <div class="col">
+                <label for="Adresse">Adresse du Patient :</label>
+                <input class="form-control" type="text" id="Adresse" name="adresse" value="{{dossier.adresse}}" required> 
+            </div>
+            <div class="col">
+                <label for="tel">Téléphone du Patient :</label>
+                <input class="form-control" type="text" id="tel" name="phone" value="{{dossier.telephone}}" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Diagnostics">Diagnostics :</label>
+            <textarea class="form-control" name="diagnostic" id="Diagnostics" rows="4" required>{{dossier.diagnostic}}</textarea>
+        </div>
+        <h4>Cures</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="cure1">Cure1 :</label>
+                <textarea class="form-control" name="cure1" id="cure1" rows="4" >{{dossier.cure1}}</textarea>
+            </div>
+            <div class="col">
+                <label for="cure2">Cure2 :</label>
+                <textarea class="form-control" name="cure2" id="cure2" rows="4" >{{dossier.cure2}}</textarea>
+            </div>
+            <div class="col">
+                <label for="cure3">Cure3 :</label>
+                <textarea class="form-control" name="cure3" id="cure3" rows="4" >{{dossier.cure3}}</textarea>
+            </div>
+        </div>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="cure4">Cure4 :</label>
+                <textarea class="form-control" name="cure4" id="cure4" rows="4" >{{dossier.cure4}}</textarea>
+            </div>
+            <div class="col">
+                <label for="cure5">Cure5 :</label>
+                <textarea class="form-control" name="cure5" id="cure5" rows="4" >{{dossier.cure5}}</textarea>
+            </div>
+        </div>
+        <h4>Bilans</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="bilan1">Bilan1 :</label>
+                <textarea class="form-control" name="bilan1" id="bilan1" rows="4" >{{dossier.bilan1}}</textarea>
+            </div>
+            <div class="col">
+                <label for="bilan2">Bilan2 :</label>
+                <textarea class="form-control" name="bilan2" id="bilan2" rows="4" >{{dossier.bilan2}}</textarea>
+            </div>
+            <div class="col">
+                <label for="bilan3">Bilan3 :</label>
+                <textarea class="form-control" name="bilan3" id="bilan3" rows="4" >{{dossier.bilan3}}</textarea>
+            </div>
+        </div>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="bilan4">Bilan4 :</label>
+                <textarea class="form-control" name="bilan4" id="bilan4" rows="4" >{{dossier.bilan4}}</textarea>
+            </div>
+            <div class="col">
+                <label for="bilan5">Bilan5 :</label>
+                <textarea class="form-control" name="bilan5" id="bilan5" rows="4" >{{dossier.bilan5}}</textarea>
+            </div>
+            <div class="col">
+                <label for="bilan6">Bilan6 :</label>
+                <textarea class="form-control" name="bilan6" id="bilan6" rows="4" >{{dossier.bilan6}}</textarea>
+            </div>
+        </div>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="bilan7">Bilan7 :</label>
+                <textarea class="form-control" name="bilan7" id="bilan7" rows="4" >{{dossier.bilan7}}</textarea>
+            </div>
+            <div class="col">
+                <label for="bilan8">Bilan8 :</label>
+                <textarea class="form-control" name="bilan8" id="bilan8" rows="4" >{{dossier.bilan8}}</textarea>
+            </div>
+            <div class="col">
+                <label for="bilan9">Bilan9 :</label>
+                <textarea class="form-control" name="bilan9" id="bilan9" rows="4" >{{dossier.bilan9}}</textarea>
+            </div>
+            <div class="col">
+                <label for="bilan10">Bilan10 :</label>
+                <textarea class="form-control" name="bilan10" id="bilan10" rows="4" >{{dossier.bilan10}}</textarea>
+            </div>
+        </div>
+        <h4>Defrenation</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="defrenation1">Defrenation1 :</label>
+                <textarea class="form-control" name="defrenation1" id="defrenation1" rows="4" >{{dossier.defrenation1}}</textarea>
+            </div>
+            <div class="col">
+                <label for="defrenation1">Defrenation2 :</label>
+                <textarea class="form-control" name="defrenation2" id="defrenation1" rows="4" >{{dossier.defrenation2}}</textarea>
+            </div>
+            <div class="col">
+                <label for="defrenation1">Defrenation3 :</label>
+                <textarea class="form-control" name="defrenation3" id="defrenation1" rows="4" >{{dossier.defrenation3}}</textarea>
+            </div>
+        </div>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="defrenation1">Defrenation4 :</label>
+                <textarea class="form-control" name="defrenation4" id="defrenation1" rows="4" >{{dossier.defrenation4}}</textarea>
+            </div>
+            <div class="col">
+                <label for="defrenation1">Defrenation4 :</label>
+                <textarea class="form-control" name="defrenation4" id="defrenation1" rows="4" >{{dossier.defrenation5}}</textarea>
+            </div>
+        </div>
+        <h4>Examens Complémentaires</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="examen1">Examen1 :</label>
+                <textarea class="form-control" name="examen1" id="examen1" rows="4" >{{dossier.examComp1}}</textarea>
+            </div>
+            <div class="col">
+                <label for="examen1">Examen2 :</label>
+                <textarea class="form-control" name="examen2" id="examen1" rows="4" >{{dossier.examComp2}}</textarea>
+            </div>
+            <div class="col">
+                <label for="examen1">Examen3 :</label>
+                <textarea class="form-control" name="examen3" id="examen1" rows="4" >{{dossier.examComp3}}</textarea>
+            </div>
+        </div>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="examen1">Examen4 :</label>
+                <textarea class="form-control" name="examen4" id="examen1" rows="4" >{{dossier.examComp4}}</textarea>
+            </div>
+            <div class="col">
+                <label for="examen1">Examen5 :</label>
+                <textarea class="form-control" name="examen5" id="examen1" rows="4" >{{dossier.examComp5}}</textarea>
+            </div>
+            <div class="col">
+                <label for="examen1">Examen6 :</label>
+                <textarea class="form-control" name="examen6" id="examen1" rows="4" >{{dossier.examComp6}}</textarea>
+            </div>
+        </div>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="examen1">Examen7 :</label>
+                <textarea class="form-control" name="examen7" id="examen1" rows="4" >{{dossier.examComp7}}</textarea>
+            </div>
+            <div class="col">
+                <label for="examen1">Examen8 :</label>
+                <textarea class="form-control" name="examen8" id="examen1" rows="4" >{{dossier.examComp8}}</textarea>
+            </div>
+            <div class="col">
+                <label for="examen1">Examen9 :</label>
+                <textarea class="form-control" name="examen9" id="examen1" rows="4" >{{dossier.examComp9}}</textarea>
+            </div>
+            <div class="col">
+                <label for="examen1">Examen10 :</label>
+                <textarea class="form-control" name="examen10" id="examen1" rows="4" >{{dossier.examComp10}}</textarea>
+            </div>
+        </div>
+        <h4>Plus</h4>
+        <div class="form-group">
+            <label for="Résumé">Résumé :</label>
+            <textarea class="form-control" name="resume" id="Résumé" rows="4" >{{dossier.resume}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="RDV">Date du prochain rendez-vous :</label>
+            <input class="form-control" type="datetime-local" id="RDV" name="dateRDV" value="{{dossier.dateRdv|date:'Y-m-d\TH:i'}}">
+        </div>
+
+        <button type="submit" name='update' class="btn btn-primary mr-2">Modifier</button>
+{% endblock %} 
