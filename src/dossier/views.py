@@ -75,8 +75,7 @@ def addDossier (request) :
             
 
             if dossier :
-                messages.error(request, f"Le dossier avec le numéro matricule {num} existe déjà.")
-                return render(request, 'messageDossier.html', context={'messages': messages.get_messages(request)})
+                return HttpResponse(f'Un dossier avec le {num} existe déjà')
             else :
                 if day < date_obj :
                     
@@ -127,11 +126,9 @@ def addDossier (request) :
                         dossier.save()
                         return redirect('liste')
                     else :
-                        messages.error(request, 'La date du prochain rendez-vous doit être pour le prochain mercredi.')
-                        return render(request, 'messageDossier.html', context={'messages': messages.get_messages(request)})
+                        return HttpResponse('La date du prochain rendez-vous doit être pour le prochain mercredi.')
                 else :
-                    messages.error(request, 'Date incorrecte.')
-                    return render(request, 'messageDossier.html', context={'messages': messages.get_messages(request)})
+                    return HttpResponse('Date incorrecte.')
     
     return render(request, "addDossier.html", {'ageDepart': ageDepart})
 
