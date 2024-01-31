@@ -44,7 +44,7 @@ class DossierMedical(models.Model) :
     examComp9 = models.TextField(null=True)
     examComp10 = models.TextField(null=True)
     resume = models.TextField(null=True)
-    dateRdv = models.DateTimeField(verbose_name="Date du bilan")
+    dateRdv = models.DateField(verbose_name="Date du bilan")
     medecin = models.ForeignKey(Medecin, on_delete=models.CASCADE)
 
     

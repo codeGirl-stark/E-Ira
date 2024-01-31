@@ -9,7 +9,7 @@ from medecin.models import Medecin
 # Create your views here.
 
 def prochain_mercredi(date_rdv):
-    input_date = datetime.strptime(date_rdv, '%Y-%m-%dT%H:%M')
+    input_date = datetime.strptime(date_rdv, '%Y-%m-%d')
 
     # Calculer les jours restants jusqu'au mercredi suivant
     jours_jusquau_mercredi = (2 - input_date.weekday() + 7) % 7
@@ -71,7 +71,7 @@ def addDossier (request) :
             dateRDV = request.POST.get('dateRDV')
             
             dossier = DossierMedical.objects.filter(numDossier=num).first()
-            date_obj = datetime.strptime(dateRDV, '%Y-%m-%dT%H:%M')
+            date_obj = datetime.strptime(dateRDV, '%Y-%m-%d')
             
 
             if dossier :
@@ -281,7 +281,7 @@ def listeVisite(request) :
     date = date_mercredi_suivant.date()
     
     medecin = get_object_or_404(Medecin, is_active=True)
-    visites = DossierMedical.objects.filter(dateRdv__date=date, medecin=medecin.id)
+    visites = DossierMedical.objects.filter(dateRdv=date, medecin=medecin.id)
 
     if not visites :
         message = "Aucune visite enregistrée"
@@ -299,9 +299,9 @@ def listeVisite(request) :
 
 
 def visitesJour(request):
-    date = datetime.now()
+    date = datetime.now().strftime('%Y-%m-%d')
     medecin = get_object_or_404(Medecin, is_active=True)
-    visites = DossierMedical.objects.filter(dateRdv__date=date, medecin=medecin.id)
+    visites = DossierMedical.objects.filter(dateRdv=date, medecin=medecin.id)
     
     if not visites :
         message = "Aucune visite pour aujourd'hui"
