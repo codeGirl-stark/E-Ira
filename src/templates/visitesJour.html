@@ -19,7 +19,18 @@
                         <div class="col-md-8">
                             <h4 class="card-title"> Vos Consultations du jour </h4>
                         </div>
+                        <form method="POST" action="{% url 'rechercheVisite' %}">
+                            {% csrf_token %}
+                            <label for="search">Entrez une date :</label>
+                            <div class="input-group">
+                                <input type="date" name="search" class="form-control" id="search">
+                                <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                                    <button type="submit" name='recherche' class="btn-primary icon-search"></button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
+                    
                     <div class="table-responsive">
                         {% if message %}
                             <p>{{ message }}</p>
@@ -31,27 +42,37 @@
                                     {% csrf_token %}
                                     <thead>
                                         <tr>
-                                        <th>N॰ Dossier</th>
-                                        <th> Identité du Patient</th>
-                                        <th>Diagnostic</th>
-                                        <th colspan="3">Actions</th>
+                                            <th>N॰ Dossier</th>
+                                            <th> Identité du Patient</th>
+                                            <th> Sexe</th>
+                                            <th> Age du Patient</th>
+                                            <th>Type Histologique</th>
+                                            <th>Classification T</th>
+                                            <th>Classification N</th>
+                                            <th>Classification M</th>
+                                            <th colspan="3">Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {% for visite in visites %}
                                         <tr>
-                                        <td class="py-1">{{ visite.numDossier }}</td>
-                                        <td>{{ visite.identite}}</td>
-                                        <td class="text-wrap col-3" width="10%">{{ visite.diagnostic }}</td>
+                                            <td class="py-1">{{ visite.numDossier }}</td>
+                                            <td>{{ visite.identite}}</td>
+                                            <td>{{ visite.sexe }}</td>
+                                            <td>{{ visite.age }} ans</td>
+                                            <td>{{ visite.typeHisto }}</td>
+                                            <td>{{ visite.clasT }}</td>
+                                            <td>{{ visite.clasN }}</td>
+                                            <td>{{ visite.clasM }}</td>
                                         <td>
                                             <a href="{% url 'detail' visite.id %}" class="mr-3">
-                                                <img src="{% static "eIra/images/details.png" %}" alt="details image" style="width:14%">
+                                                <img src="{% static "eIra/images/details.png" %}" alt="details image" style="width:25%">
                                             </a>
                                             <a href="{% url 'update' visite.id %}" class="">
-                                                <img src="{% static "eIra/images/modifier.svg" %}" alt="update image" style="width:13%">
+                                                <img src="{% static "eIra/images/modifier.svg" %}" alt="update image" style="width:25%">
                                             </a>
                                             <button type="submit" name="delete" value="{{ visite.numDossier}}" class="btn">
-                                                <img src="{% static "eIra/images/supprimer.svg" %}" alt="delete image" style="width:80%">
+                                                <img src="{% static "eIra/images/supprimer.svg" %}" alt="delete image" style="">
                                             </button>
                                         </td>
                                         </tr>

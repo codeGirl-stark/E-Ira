@@ -19,9 +19,9 @@
 
         <h1 class="card-title">Modifier les informations du Patient {{dossier.identite}}</h1>
     
-        <h4>Patient</h4>
+        <h4>Informations Générales</h4>
         <div class="form-row form-group">
-            <input class="form-control" type="hidden" name="id" value="{{dossier.id}}" required>
+            <input class="form-control" type="hidden" name="id" value="{{dossier.id}}" >
             <div class="col">
                 <label for="numeroIdent">Numéro du Dossier :</label>
                 <input class="form-control" type="text" id="numeroident" name="num" value="{{dossier.numDossier}}" readonly="true">
@@ -37,12 +37,12 @@
                     <option value="F" {% if dossier.sexe == 'F' %}selected{% endif %}>Féminin</option>
                 </select>
             </div>
-        </div>
-        <div class="form-row form-group">
             <div class="col">
                 <label for="Naissance">Année de naissance :</label>
                 <input class="form-control" type="number" id="Naissance" name="nais" min="1900" max="2024" value="{{naissance}}" required>
             </div>
+        </div>
+        <div class="form-row form-group">
             <div class="col">
                 <label for="Adresse">Adresse du Patient :</label>
                 <input class="form-control" type="text" id="Adresse" name="adresse" value="{{dossier.adresse}}" required> 
@@ -52,11 +52,184 @@
                 <input class="form-control" type="text" id="tel" name="phone" value="{{dossier.telephone}}" required>
             </div>
         </div>
-        <div class="form-group">
-            <label for="Diagnostics">Diagnostics :</label>
-            <textarea class="form-control" name="diagnostic" id="Diagnostics" rows="4" required>{{dossier.diagnostic}}</textarea>
+
+        <h4>Antécédents</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="Diagnostics">Antecedents Personnels :</label>
+                <textarea class="form-control" name="antecedent" id="Diagnostics" rows="4" >{{dossier.antecedent}}</textarea>            
+            </div>
+            <div class="col">
+                <label for="tel">Carcinome Familiale :</label>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {% if dossier.carcinome == "oui" %}
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="carcinome" id="optionsRadios1" value="oui" checked>
+                                oui
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="carcinome" id="optionsRadios2" value="non" >
+                                non
+                                </label>
+                            </div>
+                        {% else %}
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="carcinome" id="optionsRadios2" value="oui" >
+                            oui
+                            </label>
+                        </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="carcinome" id="optionsRadios2" value="non" checked>
+                                non
+                                </label>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
-        <h4>Cures</h4>
+
+        <h4>Diagnostics</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="decouverte">Age de découverte :</label>
+                <input class="form-control" type="number" id="Naissance" name="ageDecouverte" value="{{dossier.ageDecouverte}}" required>
+            </div>
+            <div class="col">
+                <label for="select">Circonstances de découverte :</label>
+                <select  name="circonstance" class="form-control" id="select" >
+                <option value="">Choisir</option>
+                  <option value="Module" {% if dossier.circonstance == 'Module' %}selected{% endif %}>Module</option>
+                  <option value="GMN" {% if dossier.circonstance == 'GNM' %}selected{% endif %}>GMN</option>
+                  <option value="ADP" {% if dossier.circonstance == 'ADP' %}selected{% endif %}>ADP</option>
+                  <option value="Metastase" {% if dossier.circonstance == 'Metastase' %}selected{% endif %}>Métastase</option>
+                  <option value="Autres" {% if dossier.circonstance == 'Autres' %}selected{% endif %}>Autres</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">Type Histologique :</label>
+                <select  name="typeHisto" class="form-control" id="select" required>
+                    <option value="">Choisir</option>
+                    <option value="Micro" {% if dossier.typeHisto == 'Micro' %}selected{% endif %}>Micro</option>
+                    <option value="Papillaire" {% if dossier.typeHisto == 'Papillaire' %}selected{% endif %}>Papillaire</option>
+                    <option value="Vesiculaire" {% if dossier.typeHisto == 'Vesiculaire' %}selected{% endif %}>Vésiculaire</option>
+                    <option value="PapilloVesiculaire" {% if dossier.typeHisto == 'PapilloVesiculaire' %}selected{% endif %}>PapilloVesiculaire</option>
+                    <option value="Medulaire" {% if dossier.typeHisto == 'Medulaire' %}selected{% endif %}>Médulaire</option>
+                    <option value="Anaplasique" {% if dossier.typeHisto == 'Anaplasique' %}selected{% endif %}>Anaplasique</option>
+                    <option value="Autres" {% if dossier.typeHisto == 'Autres' %}selected{% endif %}>Autres</option>
+                </select>
+            </div>
+        </div>
+        <h5>Classifications</h5>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="select">T:</label>
+                <select  name="clasT" class="form-control" id="select" required>
+                    <option value="">Choisir</option>
+                    <option value="Tx" {% if dossier.clasT == 'Tx' %}selected{% endif %}>Tx</option>
+                    <option value="T0" {% if dossier.clasT == 'T0' %}selected{% endif %}>T0</option>
+                    <option value="T1a" {% if dossier.clasT == 'T1a' %}selected{% endif %}>T1a</option>
+                    <option value="T1b" {% if dossier.clasT == 'T1b' %}selected{% endif %}>T1b</option>
+                    <option value="T2" {% if dossier.clasT == 'T2' %}selected{% endif %}>T2</option>
+                    <option value="T3a" {% if dossier.clasT == 'T3a' %}selected{% endif %}>T3a</option>
+                    <option value="T3b" {% if dossier.clasT == 'T3b' %}selected{% endif %}>T3b</option>
+                    <option value="T4a" {% if dossier.clasT == 'T4a' %}selected{% endif %}>T4a</option>
+                    <option value="T4b" {% if dossier.clasT == 'T4b' %}selected{% endif %}>T4b</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">N:</label>
+                <select  name="clasN" class="form-control" id="select" required>
+                    <option value="">Choisir</option>
+                    <option value="Nx" {% if dossier.clasN == 'Nx' %}selected{% endif %}>Nx</option>
+                    <option value="N0" {% if dossier.clasN == 'N0' %}selected{% endif %}>N0</option>
+                    <option value="N1a" {% if dossier.clasN == 'N1a' %}selected{% endif %}>N1a</option>
+                    <option value="N1b" {% if dossier.clasT == 'N1b' %}selected{% endif %}>N1b</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">M:</label>
+                <select  name="clasM" class="form-control" id="select" required>
+                    <option value="">Choisir</option>
+                    <option value="Mx" {% if dossier.clasM == 'Mx' %}selected{% endif %}>Mx</option>
+                    <option value="M0" {% if dossier.clasM == 'M0' %}selected{% endif %}>M0</option>
+                    <option value="M1" {% if dossier.clasM == 'M1' %}selected{% endif %}>M1</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">Metastase :</label>
+                <select  name="metastase" class="form-control" id="select" >
+                    <option value="">Choisir</option>
+                    <option value="Aucune" {% if dossier.metastase == 'Aucune' %}selected{% endif %}>Aucune</option>
+                    <option value="Ganglionaire" {% if dossier.metastase == 'Ganglionaire' %}selected{% endif %}>Ganglionaire</option>
+                    <option value="Pulmonaire" {% if dossier.metastase == 'Pulmonaire' %}selected{% endif %}>Pulmonaire</option>
+                    <option value="Oseuse" {% if dossier.metastase == 'Oseuse' %}selected{% endif %}>Oseuse</option>
+                    <option value="Hepatique" {% if dossier.metastase == 'Hepatique' %}selected{% endif %}>Hépatique</option>
+                    <option value="Cerebrale" {% if dossier.metastase == 'Cerebrale' %}selected{% endif %}>Cérébrale</option>
+                    <option value="Autres" {% if dossier.metastase == 'Autres' %}selected{% endif %}>Autres</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">Stade:</label>
+                <select  name="stade" class="form-control" id="select" >
+                    <option value="">Choisir</option>
+                    <option value="I" {% if dossier.stade == 'I' %}selected{% endif %}>I</option>
+                    <option value="II" {% if dossier.stade == 'II' %}selected{% endif %}>II</option>
+                    <option value="III" {% if dossier.stade == 'III' %}selected{% endif %}>III</option>
+                    <option value="IVA" {% if dossier.stade == 'IVA' %}selected{% endif %}>IVA</option>
+                    <option value="IVB" {% if dossier.stade == 'IVB' %}selected{% endif %}>IVB</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">Risque:</label>
+                <select  name="risque" class="form-control" id="select" >
+                    <option value="">Choisir</option>
+                    <option value="Faible" {% if dossier.risque == 'Faible' %}selected{% endif %}>Faible</option>
+                    <option value="Intermediaire" {% if dossier.risque == 'Intermediaire' %}selected{% endif %}>Intermédiaire</option>
+                    <option value="Haut" {% if dossier.risque == 'Haut' %}selected{% endif %}>Haut</option>
+                </select>
+            </div>
+        </div>
+
+        <h4>Traitements</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="select">Totalisation Chirugicale:</label>
+                <select  name="totalChir" class="form-control" id="select" >
+                    <option value="">Choisir</option>
+                    <option value="1 temps" {% if dossier.totalChir == '1 temps' %}selected{% endif %}>1 Temps</option>
+                    <option value="2 temps" {% if dossier.totalChir == '2 temps' %}selected{% endif %}>2 Temps</option>
+                    <option value="Curage" {% if dossier.totalChir == 'curage' %}selected{% endif %}>Curage</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">Nombre de Cures:</label>
+                <select  name="nbrCure" class="form-control" id="select" >
+                    <option value="">Choisir</option>
+                    <option value="1-5" {% if dossier.nbrCure == '1-5' %}selected{% endif %}>1 à 5</option>
+                    <option value="5-10" {% if dossier.nbrCure == '5-10' %}selected{% endif %}>5 à 10</option>
+                    <option value=">10" {% if dossier.nbrCure == '>10' %}selected{% endif %}>Supérieur à 10</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">Activités cumulées :</label>
+                <select  name="activiteCumule" class="form-control" id="select" >
+                    <option value="">Choisir</option>
+                    <option value="50-200" {% if dossier.activiteCumule == '50-200' %}selected{% endif %}>50 à 200</option>
+                    <option value="200-300" {% if dossier.activiteCumule == '200-300' %}selected{% endif %}>200 à 300</option>
+                    <option value="300-400" {% if dossier.activiteCumule == '300-400' %}selected{% endif %}>300 à 400</option>
+                    <option value=">= 500" {% if dossier.activiteCumule == '>= 500' %}selected{% endif %}>Supérieur ou égal à 500</option>
+                </select>
+            </div>
+        </div>
+
+        <h5>Cures</h5>
         <div class="form-row form-group">
             <div class="col">
                 <label for="cure1">Cure1 :</label>
@@ -70,8 +243,6 @@
                 <label for="cure3">Cure3 :</label>
                 <textarea class="form-control" name="cure3" id="cure3" rows="4" >{{dossier.cure3}}</textarea>
             </div>
-        </div>
-        <div class="form-row form-group">
             <div class="col">
                 <label for="cure4">Cure4 :</label>
                 <textarea class="form-control" name="cure4" id="cure4" rows="4" >{{dossier.cure4}}</textarea>
@@ -81,7 +252,47 @@
                 <textarea class="form-control" name="cure5" id="cure5" rows="4" >{{dossier.cure5}}</textarea>
             </div>
         </div>
-        <h4>Bilans</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="cure1">Cure6 :</label>
+                <textarea class="form-control" name="cure6" id="cure1" rows="4" >{{dossier.cure6}}</textarea>
+            </div>
+            <div class="col">
+                <label for="cure2">Cure7 :</label>
+                <textarea class="form-control" name="cure7" id="cure2" rows="4" >{{dossier.cure7}}</textarea>
+            </div>
+            <div class="col">
+                <label for="cure3">Cure8 :</label>
+                <textarea class="form-control" name="cure8" id="cure3" rows="4" >{{dossier.cure8}}</textarea>
+            </div>
+            <div class="col">
+                <label for="cure4">Cure9 :</label>
+                <textarea class="form-control" name="cure9" id="cure4" rows="4" >{{dossier.cure9}}</textarea>
+            </div>
+            <div class="col">
+                <label for="cure5">Cure10 :</label>
+                <textarea class="form-control" name="cure10" id="cure5" rows="4" >{{dossier.cure10}}</textarea>
+            </div>
+        </div>
+
+        <h5>Defrenations</h5>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="defrenation1">Defrenation1 :</label>
+                <textarea class="form-control" name="defrenation1" id="defrenation1" rows="4" >{{dossier.defrenation1}}</textarea>
+            </div>
+            <div class="col">
+                <label for="defrenation1">Defrenation2 :</label>
+                <textarea class="form-control" name="defrenation2" id="defrenation1" rows="4" >{{dossier.defrenation2}}</textarea>
+            </div>
+            <div class="col">
+                <label for="defrenation1">Defrenation3 :</label>
+                <textarea class="form-control" name="defrenation3" id="defrenation1" rows="4" >{{dossier.defrenation3}}</textarea>
+            </div>
+        </div>
+
+        <h4>Examens Paracliniques</h4>
+        <h5>Bilans Biologiques</h5>
         <div class="form-row form-group">
             <div class="col">
                 <label for="bilan1">Bilan1 :</label>
@@ -95,8 +306,6 @@
                 <label for="bilan3">Bilan3 :</label>
                 <textarea class="form-control" name="bilan3" id="bilan3" rows="4" >{{dossier.bilan3}}</textarea>
             </div>
-        </div>
-        <div class="form-row form-group">
             <div class="col">
                 <label for="bilan4">Bilan4 :</label>
                 <textarea class="form-control" name="bilan4" id="bilan4" rows="4" >{{dossier.bilan4}}</textarea>
@@ -105,12 +314,12 @@
                 <label for="bilan5">Bilan5 :</label>
                 <textarea class="form-control" name="bilan5" id="bilan5" rows="4" >{{dossier.bilan5}}</textarea>
             </div>
+        </div>
+        <div class="form-row form-group">
             <div class="col">
                 <label for="bilan6">Bilan6 :</label>
                 <textarea class="form-control" name="bilan6" id="bilan6" rows="4" >{{dossier.bilan6}}</textarea>
             </div>
-        </div>
-        <div class="form-row form-group">
             <div class="col">
                 <label for="bilan7">Bilan7 :</label>
                 <textarea class="form-control" name="bilan7" id="bilan7" rows="4" >{{dossier.bilan7}}</textarea>
@@ -128,34 +337,9 @@
                 <textarea class="form-control" name="bilan10" id="bilan10" rows="4" >{{dossier.bilan10}}</textarea>
             </div>
         </div>
-        <h4>Defrenation</h4>
-        <div class="form-row form-group">
-            <div class="col">
-                <label for="defrenation1">Defrenation1 :</label>
-                <textarea class="form-control" name="defrenation1" id="defrenation1" rows="4" >{{dossier.defrenation1}}</textarea>
-            </div>
-            <div class="col">
-                <label for="defrenation1">Defrenation2 :</label>
-                <textarea class="form-control" name="defrenation2" id="defrenation1" rows="4" >{{dossier.defrenation2}}</textarea>
-            </div>
-            <div class="col">
-                <label for="defrenation1">Defrenation3 :</label>
-                <textarea class="form-control" name="defrenation3" id="defrenation1" rows="4" >{{dossier.defrenation3}}</textarea>
-            </div>
-        </div>
-        <div class="form-row form-group">
-            <div class="col">
-                <label for="defrenation1">Defrenation4 :</label>
-                <textarea class="form-control" name="defrenation4" id="defrenation1" rows="4" >{{dossier.defrenation4}}</textarea>
-            </div>
-            <div class="col">
-                <label for="defrenation1">Defrenation4 :</label>
-                <textarea class="form-control" name="defrenation4" id="defrenation1" rows="4" >{{dossier.defrenation5}}</textarea>
-            </div>
-        </div>
-        <h4>Examens Complémentaires</h4>
-        <div class="form-row form-group">
-            <div class="col">
+
+        <h5>Examens Complémentaires</h5>
+            <div class="form-row form-group">
                 <label for="examen1">Examen1 :</label>
                 <textarea class="form-control" name="examen1" id="examen1" rows="4" >{{dossier.examComp1}}</textarea>
             </div>
@@ -167,8 +351,6 @@
                 <label for="examen1">Examen3 :</label>
                 <textarea class="form-control" name="examen3" id="examen1" rows="4" >{{dossier.examComp3}}</textarea>
             </div>
-        </div>
-        <div class="form-row form-group">
             <div class="col">
                 <label for="examen1">Examen4 :</label>
                 <textarea class="form-control" name="examen4" id="examen1" rows="4" >{{dossier.examComp4}}</textarea>
@@ -177,12 +359,12 @@
                 <label for="examen1">Examen5 :</label>
                 <textarea class="form-control" name="examen5" id="examen1" rows="4" >{{dossier.examComp5}}</textarea>
             </div>
+        </div>
+        <div class="form-row form-group">
             <div class="col">
                 <label for="examen1">Examen6 :</label>
                 <textarea class="form-control" name="examen6" id="examen1" rows="4" >{{dossier.examComp6}}</textarea>
             </div>
-        </div>
-        <div class="form-row form-group">
             <div class="col">
                 <label for="examen1">Examen7 :</label>
                 <textarea class="form-control" name="examen7" id="examen1" rows="4" >{{dossier.examComp7}}</textarea>
@@ -200,14 +382,21 @@
                 <textarea class="form-control" name="examen10" id="examen1" rows="4" >{{dossier.examComp10}}</textarea>
             </div>
         </div>
-        <h4>Plus</h4>
-        <div class="form-group">
-            <label for="Résumé">Résumé :</label>
-            <textarea class="form-control" name="resume" id="Résumé" rows="4" >{{dossier.resume}}</textarea>
-        </div>
-        <div class="form-group">
-            <label for="RDV">Date du prochain rendez-vous :</label>
-            <input class="form-control" type="date" id="RDV" name="dateRDV" value="{{dossier.dateRdv|date:'Y-m-d'}}">
+
+        <h4>Résumé Plus Consignes</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="Résumé">Résumé :</label>
+                <textarea class="form-control" name="resume" id="Résumé" rows="4" >{{dossier.resume}}</textarea>            
+            </div>
+            <div class="col">
+                <label for="Consignes">Consignes :</label>
+                <textarea class="form-control" name="consigne" id="Consignes" rows="4" >{{dossier.consigne}}</textarea>            
+            </div>
+            <div class="col">
+                <label for="RDV">Date du prochain rendez-vous :</label>
+                <input class="form-control" type="date" id="RDV" name="dateRDV" value="{{dossier.dateRdv|date:'Y-m-d'}}">            
+            </div>
         </div>
 
         <button type="submit" name='update' class="btn btn-primary mr-2">Modifier</button>

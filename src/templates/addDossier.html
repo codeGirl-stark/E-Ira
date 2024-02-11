@@ -16,7 +16,7 @@
 
         <h1 class="card-title">Nouveau Patient</h1>
     
-        <h4>Patient</h4>
+        <h4>Informations Générales</h4>
         <div class="form-row form-group">
             <div class="col">
                 <label for="numeroIdent">Numéro du Dossier :</label>
@@ -29,17 +29,18 @@
             <div class="col">
                 <label for="select">Sexe</label>
                 <select  name="sexe" class="form-control" id="select" required>
-                  <option value="M">Masculin</option>
-                  <option value="F">Feminin</option>
+                    <option value="">Choisir</option>
+                    <option value="M">Masculin</option>
+                    <option value="F">Feminin</option>
                 </select>
             </div>
-        </div>
-        <div class="form-row form-group">
             <div class="col">
                 <label for="Naissance">Année de naissance :</label>
                 <input class="form-control" type="number" id="Naissance" name="nais" min="1900" max="2024" placeholder="2024" required>
                 <input type="hidden" name="age" value="{{ageDepart}}" >
             </div>
+        </div>
+        <div class="form-row form-group">
             <div class="col">
                 <label for="Adresse">Adresse du Patient :</label>
                 <input class="form-control" type="text" id="Adresse" name="adresse" placeholder="Adresse" required> 
@@ -49,11 +50,169 @@
                 <input class="form-control" type="text" id="tel" name="phone" placeholder="Téléphone" required>
             </div>
         </div>
-        <div class="form-group">
-            <label for="Diagnostics">Diagnostics :</label>
-            <textarea class="form-control" name="diagnostic" id="Diagnostics" rows="4" required></textarea>
+
+        <h4>Antécédents</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="Diagnostics">Antecedents Personnels :</label>
+                <textarea class="form-control" name="antecedent" id="Diagnostics" rows="4"></textarea>
+            </div>
+            <div class="col">
+                <label for="tel">Carcinome Familiale :</label>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="carcinome" id="optionsRadios1" value="oui">
+                            oui
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="carcinome" id="optionsRadios2" value="non" checked>
+                            non
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <h4>Cures</h4>
+
+        <h4>Diagnostics</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="decouverte">Age de découverte :</label>
+                <input class="form-control" type="number" id="decouverte" name="ageDecouverte" placeholder="30" required>
+            </div>
+            <div class="col">
+                <label for="select">Circonstances de découverte :</label>
+                <select  name="circonstance" class="form-control" id="select" >
+                <option value="">Choisir</option>
+                  <option value="Module">Module</option>
+                  <option value="GMN">GMN</option>
+                  <option value="ADP">ADP</option>
+                  <option value="Metastase">Métastase</option>
+                  <option value="Autres">Autres</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">Type Histologique :</label>
+                <select  name="typeHisto" class="form-control" id="select" required>
+                    <option value="">Choisir</option>
+                    <option value="Micro">Micro</option>
+                    <option value="Papillaire">Papillaire</option>
+                    <option value="Vesiculaire">Vésiculaire</option>
+                    <option value="PapilloVesiculaire">PapilloVesiculaire</option>
+                    <option value="Medulaire">Médulaire</option>
+                    <option value="Anaplasique">Anaplasique</option>
+                    <option value="Autres">Autres</option>
+                </select>
+            </div>
+        </div>
+        <h5>Classifications</h5>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="select">T:</label>
+                <select  name="clasT" class="form-control" id="select" required>
+                    <option value="">Choisir</option>
+                    <option value="Tx">Tx</option>
+                    <option value="T0">T0</option>
+                    <option value="T1a">T1a</option>
+                    <option value="T1b">T1b</option>
+                    <option value="T2">T2</option>
+                    <option value="T3a">T3a</option>
+                    <option value="T3b">T3b</option>
+                    <option value="T4a">T4a</option>
+                    <option value="T4b">T4b</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">N:</label>
+                <select  name="clasN" class="form-control" id="select" required>
+                    <option value="">Choisir</option>
+                    <option value="Nx">Nx</option>
+                    <option value="N0">N0</option>
+                    <option value="N1a">N1a</option>
+                    <option value="N1b">N1b</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">M:</label>
+                <select  name="clasM" class="form-control" id="select" required>
+                    <option value="">Choisir</option>
+                    <option value="Mx">Mx</option>
+                    <option value="M0">M0</option>
+                    <option value="M1">M1</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">Metastase :</label>
+                <select  name="metastase" class="form-control" id="select" >
+                    <option value="">Choisir</option>
+                    <option value="Aucune">Aucune</option>
+                    <option value="Ganglionaire">Ganglionaire</option>
+                    <option value="Pulmonaire">Pulmonaire</option>
+                    <option value="Oseuse">Oseuse</option>
+                    <option value="Hepatique">Hépatique</option>
+                    <option value="Cerebrale">Cérébrale</option>
+                    <option value="Autres">Autres</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">Stade:</label>
+                <select  name="stade" class="form-control" id="select" >
+                    <option value="">Choisir</option>
+                    <option value="I">I</option>
+                    <option value="II">II</option>
+                    <option value="III">III</option>
+                    <option value="IVA">IVA</option>
+                    <option value="IVB">IVB</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">Risque:</label>
+                <select  name="risque" class="form-control" id="select" >
+                    <option value="">Choisir</option>
+                    <option value="Faible">Faible</option>
+                    <option value="Intermediaire">Intermédiaire</option>
+                    <option value="Haut">Haut</option>
+                </select>
+            </div>
+        </div>
+
+        <h4>Traitements</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="select">Totalisation Chirugicale:</label>
+                <select  name="totalChir" class="form-control" id="select" >
+                    <option value="">Choisir</option>
+                    <option value="1 temps">1 Temps</option>
+                    <option value="2 temps">2 Temps</option>
+                    <option value="Curage">Curage</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">Nombre de Cures:</label>
+                <select  name="nbrCure" class="form-control" id="select" >
+                    <option value="">Choisir</option>
+                    <option value="1-5">1 à 5</option>
+                    <option value="5-10">5 à 10</option>
+                    <option value=">10">Supérieur à 10</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="select">Activités cumulées :</label>
+                <select  name="activiteCumule" class="form-control" id="select" >
+                    <option value="">Choisir</option>
+                    <option value="50-200">50 à 200</option>
+                    <option value="200-300">200 à 300</option>
+                    <option value="300-400">300 à 400</option>
+                    <option value=">= 500">Supérieur ou égal à 500</option>
+                </select>
+            </div>
+        </div>
+
+        <h5>Cures</h5>
         <div class="form-row form-group">
             <div class="col">
                 <label for="cure1">Cure1 :</label>
@@ -67,8 +226,6 @@
                 <label for="cure3">Cure3 :</label>
                 <textarea class="form-control" name="cure3" id="cure3" rows="4" ></textarea>
             </div>
-        </div>
-        <div class="form-row form-group">
             <div class="col">
                 <label for="cure4">Cure4 :</label>
                 <textarea class="form-control" name="cure4" id="cure4" rows="4" ></textarea>
@@ -78,7 +235,46 @@
                 <textarea class="form-control" name="cure5" id="cure5" rows="4" ></textarea>
             </div>
         </div>
-        <h4>Bilans</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="cure1">Cure6 :</label>
+                <textarea class="form-control" name="cure6" id="cure6" rows="4" ></textarea>
+            </div>
+            <div class="col">
+                <label for="cure2">Cure7 :</label>
+                <textarea class="form-control" name="cure7" id="cure7" rows="4" ></textarea>
+            </div>
+            <div class="col">
+                <label for="cure3">Cure8 :</label>
+                <textarea class="form-control" name="cure8" id="cure8" rows="4" ></textarea>
+            </div>
+            <div class="col">
+                <label for="cure4">Cure9 :</label>
+                <textarea class="form-control" name="cure9" id="cure9" rows="4" ></textarea>
+            </div>
+            <div class="col">
+                <label for="cure5">Cure10 :</label>
+                <textarea class="form-control" name="cure10" id="cure10" rows="4" ></textarea>
+            </div>
+        </div>
+        <h5>Defrenations</h5>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="defrenation1">Defrenation1 :</label>
+                <textarea class="form-control" name="defrenation1" id="defrenation1" rows="4" ></textarea>
+            </div>
+            <div class="col">
+                <label for="defrenation1">Defrenation2 :</label>
+                <textarea class="form-control" name="defrenation2" id="defrenation1" rows="4" ></textarea>
+            </div>
+            <div class="col">
+                <label for="defrenation1">Defrenation3 :</label>
+                <textarea class="form-control" name="defrenation3" id="defrenation1" rows="4" ></textarea>
+            </div>
+        </div>
+
+        <h4>Examens Paracliniques</h4>
+        <h5>Bilans Biologiques</h5>
         <div class="form-row form-group">
             <div class="col">
                 <label for="bilan1">Bilan1 :</label>
@@ -92,8 +288,6 @@
                 <label for="bilan3">Bilan3 :</label>
                 <textarea class="form-control" name="bilan3" id="bilan3" rows="4" ></textarea>
             </div>
-        </div>
-        <div class="form-row form-group">
             <div class="col">
                 <label for="bilan4">Bilan4 :</label>
                 <textarea class="form-control" name="bilan4" id="bilan4" rows="4" ></textarea>
@@ -102,12 +296,12 @@
                 <label for="bilan5">Bilan5 :</label>
                 <textarea class="form-control" name="bilan5" id="bilan5" rows="4" ></textarea>
             </div>
+        </div>
+        <div class="form-row form-group">
             <div class="col">
                 <label for="bilan6">Bilan6 :</label>
                 <textarea class="form-control" name="bilan6" id="bilan6" rows="4" ></textarea>
             </div>
-        </div>
-        <div class="form-row form-group">
             <div class="col">
                 <label for="bilan7">Bilan7 :</label>
                 <textarea class="form-control" name="bilan7" id="bilan7" rows="4" ></textarea>
@@ -125,32 +319,8 @@
                 <textarea class="form-control" name="bilan10" id="bilan10" rows="4" ></textarea>
             </div>
         </div>
-        <h4>Defrenation</h4>
-        <div class="form-row form-group">
-            <div class="col">
-                <label for="defrenation1">Defrenation1 :</label>
-                <textarea class="form-control" name="defrenation1" id="defrenation1" rows="4" ></textarea>
-            </div>
-            <div class="col">
-                <label for="defrenation1">Defrenation2 :</label>
-                <textarea class="form-control" name="defrenation2" id="defrenation1" rows="4" ></textarea>
-            </div>
-            <div class="col">
-                <label for="defrenation1">Defrenation3 :</label>
-                <textarea class="form-control" name="defrenation3" id="defrenation1" rows="4" ></textarea>
-            </div>
-        </div>
-        <div class="form-row form-group">
-            <div class="col">
-                <label for="defrenation1">Defrenation4 :</label>
-                <textarea class="form-control" name="defrenation4" id="defrenation1" rows="4" ></textarea>
-            </div>
-            <div class="col">
-                <label for="defrenation1">Defrenation4 :</label>
-                <textarea class="form-control" name="defrenation4" id="defrenation1" rows="4" ></textarea>
-            </div>
-        </div>
-        <h4>Examens Complémentaires</h4>
+
+        <h5>Examens Complémentaires</h5>
         <div class="form-row form-group">
             <div class="col">
                 <label for="examen1">Examen1 :</label>
@@ -164,8 +334,6 @@
                 <label for="examen1">Examen3 :</label>
                 <textarea class="form-control" name="examen3" id="examen1" rows="4" ></textarea>
             </div>
-        </div>
-        <div class="form-row form-group">
             <div class="col">
                 <label for="examen1">Examen4 :</label>
                 <textarea class="form-control" name="examen4" id="examen1" rows="4" ></textarea>
@@ -174,12 +342,12 @@
                 <label for="examen1">Examen5 :</label>
                 <textarea class="form-control" name="examen5" id="examen1" rows="4" ></textarea>
             </div>
+        </div>
+        <div class="form-row form-group">
             <div class="col">
                 <label for="examen1">Examen6 :</label>
                 <textarea class="form-control" name="examen6" id="examen1" rows="4" ></textarea>
             </div>
-        </div>
-        <div class="form-row form-group">
             <div class="col">
                 <label for="examen1">Examen7 :</label>
                 <textarea class="form-control" name="examen7" id="examen1" rows="4" ></textarea>
@@ -197,14 +365,21 @@
                 <textarea class="form-control" name="examen10" id="examen1" rows="4" ></textarea>
             </div>
         </div>
-        <h4>Plus</h4>
-        <div class="form-group">
-            <label for="Résumé">Résumé :</label>
-            <textarea class="form-control" name="resume" id="Résumé" rows="4" ></textarea>
-        </div>
-        <div class="form-group">
-            <label for="RDV">Date du prochain rendez-vous :</label>
-            <input class="form-control" type="date" id="RDV" name="dateRDV">
+
+        <h4>Résumé Plus Consignes</h4>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="Résumé">Résumé :</label>
+                <textarea class="form-control" name="resume" id="Résumé" rows="4" ></textarea>
+            </div>
+            <div class="col">
+                <label for="Consignes">Consignes :</label>
+                <textarea class="form-control" name="consigne" id="Consignes" rows="4" ></textarea>
+            </div>
+            <div class="col">
+                <label for="RDV">Date du prochain rendez-vous :</label>
+                <input class="form-control" type="date" id="RDV" name="dateRDV">
+            </div>
         </div>
 
         <button type="submit" name='add' class="btn btn-primary mr-2">Ajouter</button>

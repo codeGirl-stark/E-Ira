@@ -5,10 +5,15 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.db import models
 from dossier.models import DossierMedical
 from medecin.models import Medecin
+import csv
+from django.apps import apps
+import shutil
+import os
+from django.conf import settings
 
 # Create your views here.
 
-def prochain_mercredi(date_rdv):
+"""def prochain_mercredi(date_rdv):
     input_date = datetime.strptime(date_rdv, '%Y-%m-%d')
 
     # Calculer les jours restants jusqu'au mercredi suivant
@@ -17,7 +22,7 @@ def prochain_mercredi(date_rdv):
     # Ajouter la durée nécessaire pour atteindre le mercredi suivant
     prochain_mercredi = input_date + timedelta(days=jours_jusquau_mercredi)
 
-    return input_date == prochain_mercredi
+    return input_date == prochain_mercredi"""
 
 
 
@@ -36,12 +41,33 @@ def addDossier (request) :
             age = (int(day.year) - int(dateNais))
             adresse = request.POST.get('adresse')
             phone = request.POST.get('phone')
-            diagnostic = request.POST.get('diagnostic')
+            antecedent = request.POST.get('antecedent')
+            carcinome = request.POST.get('carcinome')
+            ageDecouverte = request.POST.get('ageDecouverte')
+            circonstance = request.POST.get('circonstance')
+            typeHisto = request.POST.get('typeHisto')
+            clasT = request.POST.get('clasT')
+            clasN = request.POST.get('clasN')
+            clasM = request.POST.get('clasM')
+            metastase = request.POST.get('metastase')
+            stade = request.POST.get('stade')
+            risque = request.POST.get('risque')
+            totalChir = request.POST.get('totalChir')
+            nbrCure = request.POST.get('nbrCure')
+            activiteCumule = request.POST.get('activiteCumule')
             cure1 = request.POST.get('cure1')
             cure2 = request.POST.get('cure2')
             cure3 = request.POST.get('cure3')
             cure4 = request.POST.get('cure4')
             cure5 = request.POST.get('cure5')
+            cure6 = request.POST.get('cure6')
+            cure7 = request.POST.get('cure7')
+            cure8 = request.POST.get('cure8')
+            cure9 = request.POST.get('cure9')
+            cure10 = request.POST.get('cure10')
+            defrenation1 = request.POST.get('defrenation1')
+            defrenation2 = request.POST.get('defrenation2')
+            defrenation3 = request.POST.get('defrenation3')
             bilan1 = request.POST.get('bilan1')
             bilan2 = request.POST.get('bilan2')
             bilan3 = request.POST.get('bilan3')
@@ -52,11 +78,6 @@ def addDossier (request) :
             bilan8 = request.POST.get('bilan8')
             bilan9 = request.POST.get('bilan9')
             bilan10 = request.POST.get('bilan10')
-            defrenation1 = request.POST.get('defrenation1')
-            defrenation2 = request.POST.get('defrenation2')
-            defrenation3 = request.POST.get('defrenation3')
-            defrenation4 = request.POST.get('defrenation4')
-            defrenation5 = request.POST.get('defrenation5')
             examComp1 = request.POST.get('examen1')
             examComp2 = request.POST.get('examen2')
             examComp3 = request.POST.get('examen3')
@@ -68,6 +89,7 @@ def addDossier (request) :
             examComp9 = request.POST.get('examen9')
             examComp10 = request.POST.get('examen10')
             resume = request.POST.get('resume')
+            consigne = request.POST.get('consigne')
             dateRDV = request.POST.get('dateRDV')
             
             dossier = DossierMedical.objects.filter(numDossier=num).first()
@@ -79,54 +101,68 @@ def addDossier (request) :
             else :
                 if day < date_obj :
                     
-                    if prochain_mercredi(dateRDV) :
-                        dossier = DossierMedical(
-                            numDossier=num,
-                            identite=identite,
-                            sexe=sexe,
-                            age=age,
-                            adresse=adresse,
-                            telephone=phone,
-                            diagnostic=diagnostic,
-                            cure1=cure1,
-                            cure2=cure2,
-                            cure3=cure3,
-                            cure4=cure4,
-                            cure5=cure5,
-                            bilan1 =bilan1,
-                            bilan2 = bilan2,
-                            bilan3 = bilan3,
-                            bilan4 = bilan4,
-                            bilan5 = bilan5,
-                            bilan6 = bilan6,
-                            bilan7 = bilan7,
-                            bilan8 = bilan8,
-                            bilan9 = bilan9,
-                            bilan10 = bilan10,
-                            defrenation1 = defrenation1,
-                            defrenation2 = defrenation2,
-                            defrenation3 = defrenation3,
-                            defrenation4 = defrenation4,
-                            defrenation5 = defrenation5,
-                            examComp1 = examComp1,
-                            examComp2 = examComp2,
-                            examComp3 = examComp3,
-                            examComp4 = examComp4,
-                            examComp5 = examComp5,
-                            examComp6 = examComp6,
-                            examComp7 = examComp7,
-                            examComp8 = examComp8,
-                            examComp9 = examComp9,
-                            examComp10 = examComp10,
-                            resume = resume,
-                            dateRdv = dateRDV,
-                            medecin = medecin_actif,
-                        )
-                        
-                        dossier.save()
-                        return redirect('liste')
-                    else :
-                        return HttpResponse('La date du prochain rendez-vous doit être pour le prochain mercredi.')
+                    dossier = DossierMedical(
+                        numDossier=num,
+                        identite=identite,
+                        sexe=sexe,
+                        age=age,
+                        adresse=adresse,
+                        telephone=phone,
+                        antecedent = antecedent,
+                        carcinome = carcinome,
+                        ageDecouverte = ageDecouverte,
+                        circonstance = circonstance,
+                        typeHisto = typeHisto,
+                        clasT = clasT,
+                        clasN = clasN,
+                        clasM = clasM,
+                        metastase = metastase, 
+                        stade = stade,
+                        risque = risque,
+                        totalChir = totalChir,
+                        nbrCure = nbrCure, 
+                        activiteCumule = activiteCumule,
+                        cure1 = cure1,
+                        cure2 = cure2,
+                        cure3 = cure3,
+                        cure4 = cure4,
+                        cure5 = cure5,
+                        cure6 = cure6,
+                        cure7 = cure7,
+                        cure8 = cure8,
+                        cure9 = cure9,
+                        cure10 = cure10,
+                        defrenation1 = defrenation1,
+                        defrenation2 = defrenation2,
+                        defrenation3 = defrenation3,
+                        bilan1 =bilan1,
+                        bilan2 = bilan2,
+                        bilan3 = bilan3,
+                        bilan4 = bilan4,
+                        bilan5 = bilan5,
+                        bilan6 = bilan6,
+                        bilan7 = bilan7,
+                        bilan8 = bilan8,
+                        bilan9 = bilan9,
+                        bilan10 = bilan10,
+                        examComp1 = examComp1,
+                        examComp2 = examComp2,
+                        examComp3 = examComp3,
+                        examComp4 = examComp4,
+                        examComp5 = examComp5,
+                        examComp6 = examComp6,
+                        examComp7 = examComp7,
+                        examComp8 = examComp8,
+                        examComp9 = examComp9,
+                        examComp10 = examComp10,
+                        resume = resume,
+                        consigne = consigne,
+                        dateRdv = dateRDV,
+                        medecin = medecin_actif,
+                    )
+                    
+                    dossier.save()
+                    return redirect('liste')
                 else :
                     return HttpResponse('Date incorrecte.')
     
@@ -152,11 +188,18 @@ def liste(request):
         if "delete" in request.POST :
             num = request.POST.get("delete")
             dossier = get_object_or_404(DossierMedical, numDossier=num)
-            dossier.delete()
-            return redirect('liste')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+            return render(request, "confirm.html", {'dossier': dossier})                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 
     return render(request, "liste.html", context)
 
+
+def delete(request,id) :
+    
+    dossier = get_object_or_404(DossierMedical, id=id)
+    dossier.delete()
+    return redirect('liste')
+
+    return render(request, "confirm.html")
 
 def detail(request, id) :
     dossier = get_object_or_404(DossierMedical, id=id)
@@ -188,12 +231,33 @@ def update(request, id) :
         age = (int(day.year) - int(dateNais))
         adresse = request.POST.get('adresse')
         phone = request.POST.get('phone')
-        diagnostic = request.POST.get('diagnostic')
+        antecedent = request.POST.get('antecedent')
+        carcinome = request.POST.get('carcinome')
+        ageDecouverte = request.POST.get('ageDecouverte')
+        circonstance = request.POST.get('circonstance')
+        typeHisto = request.POST.get('typeHisto')
+        clasT = request.POST.get('clasT')
+        clasN = request.POST.get('clasN')
+        clasM = request.POST.get('clasM')
+        metastase = request.POST.get('metastase')
+        stade = request.POST.get('stade')
+        risque = request.POST.get('risque')
+        totalChir = request.POST.get('totalChir')
+        nbrCure = request.POST.get('nbrCure')
+        activiteCumule = request.POST.get('activiteCumule')
         cure1 = request.POST.get('cure1')
         cure2 = request.POST.get('cure2')
         cure3 = request.POST.get('cure3')
         cure4 = request.POST.get('cure4')
         cure5 = request.POST.get('cure5')
+        cure6 = request.POST.get('cure6')
+        cure7 = request.POST.get('cure7')
+        cure8 = request.POST.get('cure8')
+        cure9 = request.POST.get('cure9')
+        cure10 = request.POST.get('cure10')
+        defrenation1 = request.POST.get('defrenation1')
+        defrenation2 = request.POST.get('defrenation2')
+        defrenation3 = request.POST.get('defrenation3')
         bilan1 = request.POST.get('bilan1')
         bilan2 = request.POST.get('bilan2')
         bilan3 = request.POST.get('bilan3')
@@ -204,11 +268,6 @@ def update(request, id) :
         bilan8 = request.POST.get('bilan8')
         bilan9 = request.POST.get('bilan9')
         bilan10 = request.POST.get('bilan10')
-        defrenation1 = request.POST.get('defrenation1')
-        defrenation2 = request.POST.get('defrenation2')
-        defrenation3 = request.POST.get('defrenation3')
-        defrenation4 = request.POST.get('defrenation4')
-        defrenation5 = request.POST.get('defrenation5')
         examComp1 = request.POST.get('examen1')
         examComp2 = request.POST.get('examen2')
         examComp3 = request.POST.get('examen3')
@@ -220,6 +279,7 @@ def update(request, id) :
         examComp9 = request.POST.get('examen9')
         examComp10 = request.POST.get('examen10')
         resume = request.POST.get('resume')
+        consigne = request.POST.get('consigne')
         dateRDV = request.POST.get('dateRDV')
         
         dossier = get_object_or_404(DossierMedical, id=ident)
@@ -230,12 +290,33 @@ def update(request, id) :
         dossier.age=age
         dossier.adresse=adresse
         dossier.telephone=phone
-        dossier.diagnostic=diagnostic
-        dossier.cure1=cure1
-        dossier.cure2=cure2
-        dossier.cure3=cure3
-        dossier.cure4=cure4
-        dossier.cure5=cure5
+        dossier.antecedent = antecedent
+        dossier.carcinome = carcinome
+        dossier.ageDecouverte = ageDecouverte
+        dossier.circonstance = circonstance
+        dossier.typeHisto = typeHisto
+        dossier.clasT = clasT
+        dossier.clasN = clasN
+        dossier.clasM = clasM
+        dossier.metastase = metastase
+        dossier.stade = stade
+        dossier.risque = risque
+        dossier.totalChir = totalChir
+        dossier.nbrCure = nbrCure
+        dossier.activiteCumule = activiteCumule
+        dossier.cure1 = cure1
+        dossier.cure2 = cure2
+        dossier.cure3 = cure3
+        dossier.cure4 = cure4
+        dossier.cure5 = cure5
+        dossier.cure6 = cure6
+        dossier.cure7 = cure7
+        dossier.cure8 = cure8
+        dossier.cure9 = cure9
+        dossier.cure10 = cure10
+        dossier.defrenation1 = defrenation1
+        dossier.defrenation2 = defrenation2
+        dossier.defrenation3 = defrenation3
         dossier.bilan1 =bilan1
         dossier.bilan2 = bilan2
         dossier.bilan3 = bilan3
@@ -246,11 +327,6 @@ def update(request, id) :
         dossier.bilan8 = bilan8
         dossier.bilan9 = bilan9
         dossier.bilan10 = bilan10
-        dossier.defrenation1 = defrenation1
-        dossier.defrenation2 = defrenation2
-        dossier.defrenation3 = defrenation3
-        dossier.defrenation4 = defrenation4
-        dossier.defrenation5 = defrenation5
         dossier.examComp1 = examComp1
         dossier.examComp2 = examComp2
         dossier.examComp3 = examComp3
@@ -262,6 +338,7 @@ def update(request, id) :
         dossier.examComp9 = examComp9
         dossier.examComp10 = examComp10
         dossier.resume = resume
+        dossier.consigne = consigne
         dossier.dateRdv = dateRDV
         
         dossier.save()
@@ -270,38 +347,15 @@ def update(request, id) :
     return render(request, 'updateDossier.html', {'dossier': dossier, 'naissance' : naissance})
 
 
-def listeVisite(request) :
-    date_actuelle = datetime.now()
-    jour_semaine_actuel = date_actuelle.weekday()
-    jours_jusquau_mercredi = (2 - jour_semaine_actuel + 7) % 7
-    date_mercredi_suivant = date_actuelle + timedelta(days=jours_jusquau_mercredi)
-    date = date_mercredi_suivant.date()
-    
-    medecin = get_object_or_404(Medecin, is_active=True)
-    visites = DossierMedical.objects.filter(dateRdv=date, medecin=medecin.id)
-
-    if not visites :
-        message = "Aucune visite enregistrée"
-    else :
-        message = ""
-        
-    context = {
-        'visites' : visites,
-        'message' : message,
-        'date'    : date,
-    }
-    
-    return render(request, 'listeVisite.html', context)
-
-
 
 def visitesJour(request):
+    
     date = datetime.now().strftime('%Y-%m-%d')
     medecin = get_object_or_404(Medecin, is_active=True)
     visites = DossierMedical.objects.filter(dateRdv=date, medecin=medecin.id)
     
     if not visites :
-        message = "Aucune visite pour aujourd'hui"
+        message = "Aucune consultation pour aujourd'hui"
     else :
         message = ""
         
@@ -325,5 +379,89 @@ def search (request) :
         
         return render(request, 'resultat_search.html', {'patients': patients})
 
-        
     return render(request, "includes/header.html")
+
+
+def rechercheVisite (request) :
+    medecin = get_object_or_404(Medecin, is_active=True)
+
+    if request.method == "POST" :
+        date_recherchee = request.POST.get("search")
+        
+        if date_recherchee:
+            visites = DossierMedical.objects.filter(dateRdv=date_recherchee, medecin=medecin.id)
+            if not visites :
+                message = f"Aucune consultation pour le {date_recherchee}"
+            else :
+                message = ""
+                
+            context = {
+                'visites' : visites,
+                'message' : message,
+                'date'    : date_recherchee,
+            }
+            return render(request, "listeVisite.html", context)
+
+    return render (request, "listeVisite.html")
+
+
+def export (request) :
+    
+    return render(request, "export.html")
+
+def export_to_csv (request) :
+    csv_filename = "base.csv"
+
+    # Liste de tous les modèles dans l'application
+    all_models = apps.get_models()
+
+    # Ouverture du fichier en mode écriture
+    with open(csv_filename, 'w', newline='') as csv_file:
+        # Création de l'objet writer
+        csv_writer = csv.writer(csv_file)
+
+        for model in all_models:
+            # Obtention de toutes les instances du modèle
+            all_data = model.objects.all()
+
+            # Écriture de l'en-tête du CSV (noms de colonnes)
+            header = [field.name for field in model._meta.fields]
+            csv_writer.writerow([f"{model.__name__} - {col}" for col in header])
+
+            # Écriture des données dans le CSV
+            for row in all_data:
+                csv_writer.writerow([getattr(row, field) for field in header])
+
+    # Réponse HTTP pour télécharger le fichier CSV
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="base.csv"'
+
+    # Copie du contenu du fichier CSV dans la réponse HTTP
+    with open(csv_filename, 'r') as csv_file:
+        response.write(csv_file.read())
+
+    return response
+    
+    
+def export_to_sqlite(request):
+    # Chemin du fichier SQLite actuel
+    db_path = settings.DATABASES['default']['NAME']
+
+    # Chemin de destination pour le fichier exporté
+    exported_db_path = os.path.join(settings.BASE_DIR, 'base.sqlite3')
+
+    # Copie du fichier SQLite vers l'emplacement de destination
+    shutil.copy2(db_path, exported_db_path)
+
+    # Réponse HTTP pour télécharger le fichier SQLite
+    response = HttpResponse(content_type='application/x-sqlite3')
+    response['Content-Disposition'] = 'attachment; filename="base.sqlite3"'
+
+    # Copie du contenu du fichier SQLite dans la réponse HTTP
+    with open(exported_db_path, 'rb') as db_file:
+        response.write(db_file.read())
+
+    # Suppression du fichier exporté (commenter cette ligne si vous souhaitez conserver le fichier)
+    os.remove(exported_db_path)
+
+    return response
