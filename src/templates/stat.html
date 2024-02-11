@@ -93,6 +93,874 @@
           </div>
         </div>
 
+        <h4>Age de découverte</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Moins de 40ans</p>
+                    {% if agedec1 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{agedec1}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">40 à 50 ans</p>
+                    {% if agedec2 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{agedec2}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                <div class="card tale-bg align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Plus de 70ans</p>
+                    {% if agedec5 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{agedec5}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">50 à 60 ans</p>
+                    {% if agedec3 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{agedec3}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">60 à 70 ans</p>
+                    {% if agedec4 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{agedec4}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <h4>Circonstances de découverte</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Module</p>
+                    {% if circonstance1 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{circonstance1}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">GMN</p>
+                    {% if circonstance2 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{circonstance2}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                <div class="card tale-bg align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Autres</p>
+                    {% if circonstance5 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{circonstance5}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">ADP</p>
+                    {% if circonstance3 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{circonstance3}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Métastase</p>
+                    {% if circonstance4 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{circonstance4}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Type histologique</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Micro</p>
+                    {% if type1 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{type1}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Papillaire</p>
+                    {% if type2 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{type2}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card tale-bg align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Vésiculaire</p>
+                    {% if type3 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{type3}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">PapilloVesiculaire</p>
+                    {% if type4 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{type4}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Médullaire</p>
+                    {% if type5 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{type5}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Anaplasique</p>
+                    {% if type6 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{type6}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Autres</p>
+                    {% if type7 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{type7}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Classification T</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Tx</p>
+                    {% if clasTx == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasTx}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">T0</p>
+                    {% if clasT0 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasT0}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card tale-bg align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">T2</p>
+                    {% if clasT2 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasT2}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">T3a</p>
+                    {% if clasT3a == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasT3a}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">T4b</p>
+                    {% if clasT4b == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasT4b}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">T1a</p>
+                    {% if clasT1a == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasT1a}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">T1b</p>
+                    {% if clasT1b == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasT1b}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">T3a</p>
+                    {% if clasT3a == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasT3a}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">T4a</p>
+                    {% if clasT4a == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasT4a}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Classification N</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Nx</p>
+                    {% if clasNx == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasNx}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">N0</p>
+                    {% if clasN0 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasN0}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">N1a</p>
+                    {% if clasN1a == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasN1a}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">N1b</p>
+                    {% if clasN1b == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasN1b}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Classification M</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Mx</p>
+                    {% if clasMx == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasMx}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">M0</p>
+                    {% if clasM0 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasM0}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">M1</p>
+                    {% if clasM1 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{clasM1}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+
+        <h4>Métastase</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Aucune</p>
+                    {% if meta1 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{meta1}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Ganglionaire</p>
+                    {% if meta2 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{meta2}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card tale-bg align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Pulmonaire</p>
+                    {% if meta3 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{meta3}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Oseuse</p>
+                    {% if meta4 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{meta4}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Hépatique</p>
+                    {% if meta5 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{meta5}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Cérébrale</p>
+                    {% if meta6 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{meta6}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Autres</p>
+                    {% if meta7 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{meta7}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Stade</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">I</p>
+                    {% if stade1 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{stade1}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">II</p>
+                    {% if stade2 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{stade2}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                <div class="card tale-bg align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">IVB</p>
+                    {% if stade5 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{stade5}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">III</p>
+                    {% if stade3 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{stade3}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">IVA</p>
+                    {% if stade4 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{stade4}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4>Risque</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Faible</p>
+                    {% if risque1 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{risque1}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Intermediaire</p>
+                    {% if risque2 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{risque2}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Haut</p>
+                    {% if risque3 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{risque3}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+
+        <h4>Totalisation Chirugicale</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">1 temps</p>
+                    {% if totalChir1 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{totalChir1}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">2 temps</p>
+                    {% if totalChir2 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{totalChir2}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Curage</p>
+                    {% if totalChir3 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{totalChir3}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+
+        <h4>Nombre de Cures</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Moins de 5</p>
+                    {% if nbrCur1 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{nbrCur1}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">5 à 10</p>
+                    {% if nbrCur2 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{nbrCur2}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">Plus de 10</p>
+                    {% if nbrCur3 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{nbrCur3}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+
+        <h4>Activités Cumulées</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">50 à 200</p>
+                    {% if activite1 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{activite1}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">200 à 300</p>
+                    {% if activite2 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{activite2}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">300 à 400</p>
+                    {% if activite3 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{activite3}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-4">500 et plus</p>
+                    {% if activite4 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{activite4}}</p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       {% endif %}
 
 {% endblock %}

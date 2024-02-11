@@ -87,12 +87,12 @@ def stat (request) :
 
     #compte par métastase
     meta1 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Aucune").count()
-    meta1 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Ganglionaire").count()
-    meta1 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Pulmonaire").count()
-    meta1 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Oseuse").count()
-    meta1 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Hepatique").count()
-    meta1 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Cerebrale").count()
-    meta1 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Autres").count()
+    meta2 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Ganglionaire").count()
+    meta3 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Pulmonaire").count()
+    meta4 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Oseuse").count()
+    meta5 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Hepatique").count()
+    meta6 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Cerebrale").count()
+    meta7 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Autres").count()
     
     #compte par stade
     stade1 = DossierMedical.objects.filter(medecin=medecin.id, stade="I").count()
@@ -135,6 +135,64 @@ def stat (request) :
         "femme" : femme,
         "ado": ado,
         "adulte": adulte,
+        "agedec1" : agedec1,
+        "agedec2" : agedec2,
+        "agedec3" : agedec3,
+        "agedec4" : agedec4,
+        "agedec5" : agedec5,
+        "circonstance1" : circonstances1,
+        "circonstance2" : circonstances2,
+        "circonstance3" : circonstances3,
+        "circonstance4" : circonstances4,
+        "circonstance5" : circonstances5,
+        "type1" : type1,
+        "type2" : type2,
+        "type3" : type3,
+        "type4" : type4,
+        "type5" : type5,
+        "type6" : type6,
+        "type7" : type7,
+        "clasTx" : clasTx,
+        "clasT0" : clasT0,
+        "clasT1a" : clasT1a,
+        "clasT1b" : clasT1b,
+        "clasT2" : clasT2,
+        "clasT3a" : clasT3a,
+        "clasT3b" : clasT3b,
+        "clasT4a" : clasT4a,
+        "clasT4b" : clasT4b,
+        "clasNx" : clasNx,
+        "clasN0" : clasN0,
+        "clasN1a" : clasN1a,
+        "clasN1b" : clasN1b,
+        "clasMx" : clasMx,
+        "clasM0" : clasM0,
+        "clasM1" : clasM1,
+        "meta1" : meta1,
+        "meta2" : meta2,
+        "meta3" : meta3,
+        "meta4" : meta4,
+        "meta5" : meta5,
+        "meta6" : meta6,
+        "meta7" : meta7,
+        "stade1" : stade1,
+        "stade2" : stade2,
+        "stade3" : stade3,
+        "stade4" : stade4,
+        "stade5" : stade5,
+        "risque1" : risque1,
+        "risque2" : risque2,
+        "risque3" : risque3,
+        "totalChir1" : totalChir1,
+        "totalChir2" : totalChir2,
+        "totalChir3" : totalChir3,
+        "nbrCur1" : nbrCur1,
+        "nbrCur2" : nbrCur2,
+        "nbrCur3" : nbrCur3,
+        "activite1" : activite1,
+        "activite2" : activite2,
+        "activite2" : activite3,
+        "activite3" : activite4,
     }
 
     return render(request, 'stat.html', context)
