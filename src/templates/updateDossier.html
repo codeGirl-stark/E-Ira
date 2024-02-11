@@ -120,7 +120,7 @@
                     <option value="Papillaire" {% if dossier.typeHisto == 'Papillaire' %}selected{% endif %}>Papillaire</option>
                     <option value="Vesiculaire" {% if dossier.typeHisto == 'Vesiculaire' %}selected{% endif %}>Vésiculaire</option>
                     <option value="PapilloVesiculaire" {% if dossier.typeHisto == 'PapilloVesiculaire' %}selected{% endif %}>PapilloVesiculaire</option>
-                    <option value="Medulaire" {% if dossier.typeHisto == 'Medulaire' %}selected{% endif %}>Médulaire</option>
+                    <option value="Medullaire" {% if dossier.typeHisto == 'Medullaire' %}selected{% endif %}>Médullaire</option>
                     <option value="Anaplasique" {% if dossier.typeHisto == 'Anaplasique' %}selected{% endif %}>Anaplasique</option>
                     <option value="Autres" {% if dossier.typeHisto == 'Autres' %}selected{% endif %}>Autres</option>
                 </select>
@@ -340,26 +340,27 @@
 
         <h5>Examens Complémentaires</h5>
             <div class="form-row form-group">
-                <label for="examen1">Examen1 :</label>
-                <textarea class="form-control" name="examen1" id="examen1" rows="4" >{{dossier.examComp1}}</textarea>
+                <div class="col">
+                    <label for="examen1">Examen1 :</label>
+                    <textarea class="form-control" name="examen1" id="examen1" rows="4" >{{dossier.examComp1}}</textarea>
+                </div>
+                <div class="col">
+                    <label for="examen1">Examen2 :</label>
+                    <textarea class="form-control" name="examen2" id="examen1" rows="4" >{{dossier.examComp2}}</textarea>
+                </div>
+                <div class="col">
+                    <label for="examen1">Examen3 :</label>
+                    <textarea class="form-control" name="examen3" id="examen1" rows="4" >{{dossier.examComp3}}</textarea>
+                </div>
+                <div class="col">
+                    <label for="examen1">Examen4 :</label>
+                    <textarea class="form-control" name="examen4" id="examen1" rows="4" >{{dossier.examComp4}}</textarea>
+                </div>
+                <div class="col">
+                    <label for="examen1">Examen5 :</label>
+                    <textarea class="form-control" name="examen5" id="examen1" rows="4" >{{dossier.examComp5}}</textarea>
+                </div>
             </div>
-            <div class="col">
-                <label for="examen1">Examen2 :</label>
-                <textarea class="form-control" name="examen2" id="examen1" rows="4" >{{dossier.examComp2}}</textarea>
-            </div>
-            <div class="col">
-                <label for="examen1">Examen3 :</label>
-                <textarea class="form-control" name="examen3" id="examen1" rows="4" >{{dossier.examComp3}}</textarea>
-            </div>
-            <div class="col">
-                <label for="examen1">Examen4 :</label>
-                <textarea class="form-control" name="examen4" id="examen1" rows="4" >{{dossier.examComp4}}</textarea>
-            </div>
-            <div class="col">
-                <label for="examen1">Examen5 :</label>
-                <textarea class="form-control" name="examen5" id="examen1" rows="4" >{{dossier.examComp5}}</textarea>
-            </div>
-        </div>
         <div class="form-row form-group">
             <div class="col">
                 <label for="examen1">Examen6 :</label>

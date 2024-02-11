@@ -29,7 +29,11 @@
         <div class="row">
           <div class="col-md-6 grid-margin stretch-card">
               <div class="card tale-bg d-flex align-items-center justify-content-center">
+                {% if patients == 1 %}
+                <p class="fs-30 mb-2 text-center">Vous avez {{patients}} patient au total </p>
+                {% else %}
                 <p class="fs-30 mb-2 text-center">Vous avez {{patients}} patients au total </p>
+                {% endif %}
               </div>
             </div>
             
