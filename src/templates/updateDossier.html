@@ -95,17 +95,17 @@
             </div>
         </div>
 
-        <h4>Diagnostics</h4>
+        <h4>Diagnostic</h4>
         <div class="form-row form-group">
             <div class="col">
                 <label for="decouverte">Age de découverte :</label>
-                <input class="form-control" type="number" id="Naissance" name="ageDecouverte" value="{{dossier.ageDecouverte}}" required>
+                <input class="form-control" type="number" id="Naissance" name="ageDecouverte" value={{dossier.ageDecouverte}}>
             </div>
             <div class="col">
                 <label for="select">Circonstances de découverte :</label>
                 <select  name="circonstance" class="form-control" id="select" >
                 <option value="">Choisir</option>
-                  <option value="Module" {% if dossier.circonstance == 'Module' %}selected{% endif %}>Module</option>
+                  <option value="Nodule" {% if dossier.circonstance == 'Nodule' %}selected{% endif %}>Nodule</option>
                   <option value="GMN" {% if dossier.circonstance == 'GNM' %}selected{% endif %}>GMN</option>
                   <option value="ADP" {% if dossier.circonstance == 'ADP' %}selected{% endif %}>ADP</option>
                   <option value="Metastase" {% if dossier.circonstance == 'Metastase' %}selected{% endif %}>Métastase</option>
@@ -116,7 +116,6 @@
                 <label for="select">Type Histologique :</label>
                 <select  name="typeHisto" class="form-control" id="select" required>
                     <option value="">Choisir</option>
-                    <option value="Micro" {% if dossier.typeHisto == 'Micro' %}selected{% endif %}>Micro</option>
                     <option value="Papillaire" {% if dossier.typeHisto == 'Papillaire' %}selected{% endif %}>Papillaire</option>
                     <option value="Vesiculaire" {% if dossier.typeHisto == 'Vesiculaire' %}selected{% endif %}>Vésiculaire</option>
                     <option value="PapilloVesiculaire" {% if dossier.typeHisto == 'PapilloVesiculaire' %}selected{% endif %}>PapilloVesiculaire</option>
@@ -209,23 +208,12 @@
                 </select>
             </div>
             <div class="col">
-                <label for="select">Nombre de Cures:</label>
-                <select  name="nbrCure" class="form-control" id="select" >
-                    <option value="">Choisir</option>
-                    <option value="1-5" {% if dossier.nbrCure == '1-5' %}selected{% endif %}>1 à 5</option>
-                    <option value="5-10" {% if dossier.nbrCure == '5-10' %}selected{% endif %}>5 à 10</option>
-                    <option value=">10" {% if dossier.nbrCure == '>10' %}selected{% endif %}>Supérieur à 10</option>
-                </select>
+                <label for="decouverte">Nombre de Cures :</label>
+                <input class="form-control" type="number" id="Naissance" name="nbrCure" value={{dossier.nbrCure}}>
             </div>
             <div class="col">
-                <label for="select">Activités cumulées :</label>
-                <select  name="activiteCumule" class="form-control" id="select" >
-                    <option value="">Choisir</option>
-                    <option value="50-200" {% if dossier.activiteCumule == '50-200' %}selected{% endif %}>50 à 200</option>
-                    <option value="200-300" {% if dossier.activiteCumule == '200-300' %}selected{% endif %}>200 à 300</option>
-                    <option value="300-400" {% if dossier.activiteCumule == '300-400' %}selected{% endif %}>300 à 400</option>
-                    <option value=">= 500" {% if dossier.activiteCumule == '>= 500' %}selected{% endif %}>Supérieur ou égal à 500</option>
-                </select>
+                <label for="decouverte">Activités cumulées :</label>
+                <input class="form-control" type="number" id="decouverte" name="activiteCumule" value={{dossier.activiteCumule}}>
             </div>
         </div>
 
@@ -384,7 +372,7 @@
             </div>
         </div>
 
-        <h4>Résumé Plus Consignes</h4>
+        <h4>Résumé Et Consignes</h4>
         <div class="form-row form-group">
             <div class="col">
                 <label for="Résumé">Résumé :</label>

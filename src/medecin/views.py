@@ -32,6 +32,15 @@ def stat (request) :
     age4 = (60, 70)
     age5 = (70, 300)
     
+    cure1 = (0, 4)
+    cure2 = (5, 10)
+    cure3 = (11, 100)
+    
+    cumul1 = (0, 199)
+    cumul2 = (200, 299)
+    cumul3 = (300, 499)
+    cumul4 = (500, 1000)
+    
     
     medecin = get_object_or_404(Medecin, is_active=True)
     patients = DossierMedical.objects.filter(medecin=medecin.id).count()
@@ -113,15 +122,15 @@ def stat (request) :
 
 
     #compte par nombre de curage
-    nbrCur1 = DossierMedical.objects.filter(medecin=medecin.id, nbrCure="1-5").count()
-    nbrCur2 = DossierMedical.objects.filter(medecin=medecin.id, nbrCure="5-10").count()
-    nbrCur3 = DossierMedical.objects.filter(medecin=medecin.id, nbrCure=">10").count()
+    nbrCur1 = DossierMedical.objects.filter(medecin=medecin.id, nbrCure__range=cure1).count()
+    nbrCur2 = DossierMedical.objects.filter(medecin=medecin.id, nbrCure__range=cure2).count()
+    nbrCur3 = DossierMedical.objects.filter(medecin=medecin.id, nbrCure__range=cure3).count()
     
     #compte par activités cumulés
-    activite1 = DossierMedical.objects.filter(medecin=medecin.id, activiteCumule="50-200").count()
-    activite2 = DossierMedical.objects.filter(medecin=medecin.id, activiteCumule="200-300").count()
-    activite3 = DossierMedical.objects.filter(medecin=medecin.id, activiteCumule="300-400").count()
-    activite4 = DossierMedical.objects.filter(medecin=medecin.id, activiteCumule=">= 500").count()
+    activite1 = DossierMedical.objects.filter(medecin=medecin.id, activiteCumule__range=cumul1).count()
+    activite2 = DossierMedical.objects.filter(medecin=medecin.id, activiteCumule__range=cumul2).count()
+    activite3 = DossierMedical.objects.filter(medecin=medecin.id, activiteCumule__range=cumul3).count()
+    activite4 = DossierMedical.objects.filter(medecin=medecin.id, activiteCumule__range=cumul4).count()
 
     if not patients :
         message = "Vous n'avez aucun patient pour le moment"
@@ -191,8 +200,8 @@ def stat (request) :
         "nbrCur3" : nbrCur3,
         "activite1" : activite1,
         "activite2" : activite2,
-        "activite2" : activite3,
-        "activite3" : activite4,
+        "activite3" : activite3,
+        "activite4" : activite4,
     }
 
     return render(request, 'stat.html', context)

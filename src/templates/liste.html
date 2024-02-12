@@ -45,11 +45,8 @@
                                         <th>N॰ Dossier</th>
                                         <th> Identité du Patient</th>
                                         <th> Sexe</th>
-                                        <th> Age du Patient</th>
-                                        <th>Type Histologique</th>
-                                        <th>Classification T</th>
-                                        <th>Classification N</th>
-                                        <th>Classification M</th>
+                                        <th> Age</th>
+                                        <th>Classification TNM</th>
                                         <th colspan="3">Actions</th>
                                         </tr>
                                     </thead>
@@ -59,20 +56,17 @@
                                         <td class="py-1">{{ dossier.numDossier }}</td>
                                         <td>{{ dossier.identite}}</td>
                                         <td>{{ dossier.sexe }}</td>
-                                        <td>{{ dossier.age }} ans</td>
-                                        <td>{{ dossier.typeHisto }}</td>
-                                        <td>{{ dossier.clasT }}</td>
-                                        <td>{{ dossier.clasN }}</td>
-                                        <td>{{ dossier.clasM }}</td>
+                                        <td>{{ dossier.age }}</td>
+                                        <td>{{ dossier.clasT }} {{ dossier.clasN }} {{ dossier.clasM }}</td>
                                         <td>
                                             <a href="{% url 'detail' dossier.id %}" class="mr-3">
-                                                <img src="{% static "eIra/images/details.png" %}" alt="details image" style="width:25%">
+                                                <img src="{% static "eIra/images/details.png" %}" alt="details image" style="width:10%">
                                             </a>
                                             <a href="{% url 'update' dossier.id %}" class="">
-                                                <img src="{% static "eIra/images/modifier.svg" %}" alt="update image" style="width:25%">
+                                                <img src="{% static "eIra/images/modifier.svg" %}" alt="update image" style="width:13%">
                                             </a>
                                             <button type="submit" name="delete" value="{{ dossier.numDossier}}" class="btn">
-                                                <img src="{% static "eIra/images/supprimer.svg" %}" alt="delete image" style="">
+                                                <img src="{% static "eIra/images/supprimer.svg" %}" alt="delete image">
                                             </button>
                                         </td>
                                         </tr>

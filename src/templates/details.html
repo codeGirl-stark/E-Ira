@@ -17,482 +17,618 @@
             <h3 class="card-title"></h3>
             <h3 class="card-title">Details</h3>
 
-            <h5>Informations générales</h5>
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">Numero du dossier</li>
-                <li class="breadcrumb-item active" aria-current="page">{{ dossier.numDossier }}</li>
-              </ol>
-            </nav>
-            
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">Identité du Patient</li>
-                <li class="breadcrumb-item active" aria-current="page">{{ dossier.identite }}</li>
-              </ol>
-            </nav>
+            <h4>Informations générales</h4>
 
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">Sexe</li>
-                {% if dossier.sexe == 'M' %} 
-                <li class="breadcrumb-item active" aria-current="page">Masculin</li>
-                {% else %}
-                <li class="breadcrumb-item active" aria-current="page">Feminin</li>
-                {% endif %}
-              </ol>
-            </nav>
-
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">Age du Patient</li>
-                <li class="breadcrumb-item active" aria-current="page">{{ dossier.age }} ans</li>
-              </ol>
-            </nav>
-
+            <div class="form-row form-group">
+              <div class="col">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Numero du dossier</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.numDossier }}</li>
+                  </ol>
+                </nav>
+              </div>
+              <div class="col">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Identité du Patient</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.identite }}</li>
+                  </ol>
+                </nav>
+              </div>
+          </div>
+          <div class="form-row form-group">
+            <div class="col">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">Sexe</li>
+                  {% if dossier.sexe == 'M' %} 
+                  <li class="breadcrumb-item active" aria-current="page">Masculin</li>
+                  {% else %}
+                  <li class="breadcrumb-item active" aria-current="page">Feminin</li>
+                  {% endif %}
+                </ol>
+              </nav>
+            </div>
+            <div class="col">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">Age du Patient</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.age }} ans</li>
+                </ol>
+              </nav>
+            </div>
+        </div>
+        <div class="form-row form-group">
+          <div class="col">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">Adresse du Patient</li>
                 <li class="breadcrumb-item active" aria-current="page">{{ dossier.adresse }}</li>
               </ol>
             </nav>
-
+          </div>
+          <div class="col">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">Téléphone</li>
                 <li class="breadcrumb-item active" aria-current="page">{{ dossier.telephone }}</li>
               </ol>
             </nav>
+          </div>
+      </div>
 
-            <h5>Antécédents</h5>
+          <h4>Antécédents</h4>
+          <div class="form-row form-group">
             {% if dossier.antecedent %}
+            <div class="col">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">Antécédents personnels</li>
                 <li class="breadcrumb-item active" aria-current="page">{{ dossier.antecedent}}</li>
               </ol>
-            </nav>
-            {% else %}
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">Aucun antécédent personnel</li>
-              </ol>
-            </nav>            
+            </nav>           
+            </div>
             {% endif %}
-
-            {% if dossier.carcinome %}
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item">Carcinome</li>
-                <li class="breadcrumb-item active" aria-current="page">{{ dossier.carcinome}}</li>
-              </ol>
-            </nav>
-            {% else %}
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">Aucun carcinome</li>
-              </ol>
-            </nav>            
-            {% endif %}
-
-            {% if dossier.bilan1 or dossier.bilan2 or dossier.bilan3 or dossier.bilan4  or dossier.bilan5 or dossier.bilan6 or dossier.bilan7 or dossier.bilan8 or dossier.bilan9 or dossier.bilan10 %}
-            <h5>Bilans</h5>
-              {% if dossier.bilan1 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Bilan1</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan1 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.bilan2 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Bilan2</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan2 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.bilan3 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Bilan3</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan3 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.bilan4 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Bilan4</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan4 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.bilan5 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Bilan5</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan5 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.bilan6 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Bilan6</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan6 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.bilan7 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Bilan7</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan7 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.bilan8 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Bilan8</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan8 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.bilan9 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Bilan9</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan9 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.bilan10 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Bilan10</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan10 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-            {% endif %}
-
-
-            {% if dossier.examComp1 or dossier.examComp2 or dossier.examComp3 or dossier.examComp4  or dossier.examComp5 or dossier.examComp6 or dossier.examComp7 or dossier.examComp8 or dossier.examComp9 or dossier.examComp10 %}
-            <h5>Examens Complémentaire</h5>
-            {% if dossier.examComp1 %}
+            <div class="col">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Examen1</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp1 }}</li>
+                  <li class="breadcrumb-item">Carcinome</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.carcinome}}</li>
                 </ol>
               </nav>
-            {% endif %}
-            {% if dossier.examComp2 %}
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Examen2</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp2 }}</li>
-                </ol>
-              </nav>
-            {% endif %}
-            {% if dossier.examComp3 %}
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Examen3</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp3 }}</li>
-                </ol>
-              </nav>
-            {% endif %}
-            {% if dossier.examComp4 %}
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Examen4</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp4 }}</li>
-                </ol>
-              </nav>
-            {% endif %}
-            {% if dossier.examComp5 %}
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Examen5</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp5 }}</li>
-                </ol>
-              </nav>
-            {% endif %}
-            {% if dossier.examComp6 %}
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Examen6</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp6 }}</li>
-                </ol>
-              </nav>
-            {% endif %}
-            {% if dossier.examComp7 %}
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Examen7</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp7 }}</li>
-                </ol>
-              </nav>
-            {% endif %}
-            {% if dossier.examComp8 %}
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Examen8</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp8 }}</li>
-                </ol>
-              </nav>
-            {% endif %}
-            {% if dossier.examComp9 %}
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Examen9</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp9 }}</li>
-                </ol>
-              </nav>
-            {% endif %}
-            {% if dossier.examComp10 %}
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Examen10</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp10 }}</li>
-                </ol>
-              </nav>
-            {% endif %}
-            {% endif %}
-
-            
-            
+            </div>
           </div>
+            
+          <h4>Traitements</h4>
+          {% if dossier.totalChir or dossier.nbrCure or dossier.activiteCumule %}
+          <div class="form-row form-group">
+            {% if dossier.totalChir %}
+            <div class="col">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">Totalisations chirugicales</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.totalChir }}</li>
+                </ol>
+              </nav>         
+            </div>
+            {% endif %}
+            {% if dossier.nbrCure %}
+            <div class="col">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">Nombre de Cure</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.nbrCure }}</li>
+                </ol>
+              </nav>
+            </div>
+            {% endif %}
+            {% if dossier.activiteCumule %}
+            <div class="col">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">Activités Cumulées</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.activiteCumule }}</li>
+                </ol>
+              </nav>
+            </div>
+            {% endif %}
         </div>
+        {% endif %}
+
+        <h5>Cures</h5>
+        {% if dossier.cure1 or dossier.cure2 or dossier.cure3 or dossier.cure4 or dossier.cure5 or dossier.cure6 or dossier.cure7 or dossier.cure8 or dossier.cure9 or dossier.cure10 %}
+        <div class="form-row form-group">
+          {% if dossier.cure1 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Cure1</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure1 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+          {% if dossier.cure2 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Cure2</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure2 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+          {% if dossier.cure3 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Cure3</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure3 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
       </div>
+      <div class="form-row form-group">
+        {% if dossier.cure4 %}
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">Cure4</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure4 }}</li>
+            </ol>
+          </nav>
+        </div>
+        {% endif %}
+        {% if dossier.cure5 %}
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">Cure5</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure5 }}</li>
+            </ol>
+          </nav>
+        </div>
+        {% endif %}
+    </div>
+    <div class="form-row form-group">
+      {% if dossier.cure6 %}
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">Cure6</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure6 }}</li>
+          </ol>
+        </nav>
+      </div>
+      {% endif %}
+      {% if dossier.cure7 %}
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">Cure7</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure7 }}</li>
+          </ol>
+        </nav>
+      </div>
+      {% endif %}
+      {% if dossier.cure8 %}
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">Cure3</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure8 }}</li>
+          </ol>
+        </nav>
+      </div>
+      {% endif %}
+        </div>
+        <div class="form-row form-group">
+          {% if dossier.cure9 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Cure9</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure9 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+          {% if dossier.cure10 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Cure10</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure10 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+      </div>
+      {% else %}
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">Aucune cure</li>
+            </ol>
+          </nav>
+        {% endif %}
+
+        <h5>Défrénation</h5>
+        {% if dossier.defrenation1 or dossier.defrenation2 or dossier.defrenation3 %}
+        <div class="form-row form-group">
+          {% if dossier.defrenation1 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Defrenation1</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.defrenation1 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+          {% if dossier.defrenation2 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Defrenation2</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.defrenation2 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+          {% if dossier.defrenation3 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Defrenation3</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.defrenation3 }}</li>
+                  </ol>
+                </nav>
+          </div>
+          {% endif %}
+        </div>
+        {% else %}
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">Aucune défrénation</li>
+            </ol>
+          </nav>
+        {% endif %}
+
+        <br/>
+                
+        <h4>Examens Paracliniques</h4>
+              
+        <h5>Bilans Biologiques</h5>
+        {% if dossier.bilan1 or dossier.bilan2 or dossier.bilan3 or dossier.bilan4  or dossier.bilan5 or dossier.bilan6 or dossier.bilan7 or dossier.bilan8 or dossier.bilan9 or dossier.bilan10 %}
+        <div class="form-row form-group">
+          {% if dossier.bilan1 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Bilan1</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan1 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+          {% if dossier.bilan2 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Bilan2</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan2 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+          {% if dossier.bilan3 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Bilan3</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan3 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+      </div>
+      <div class="form-row form-group">
+        {% if dossier.bilan4 %}
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">Bilan4</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan4 }}</li>
+            </ol>
+          </nav>
+        </div>
+        {% endif %}
+        {% if dossier.bilan5 %}
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">Bilan5</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan5 }}</li>
+            </ol>
+          </nav>
+        </div>
+        {% endif %}
+          </div>
+          <div class="form-row form-group">
+            {% if dossier.bilan6 %}
+            <div class="col">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">Bilan6</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan6 }}</li>
+                </ol>
+              </nav>
+            </div>
+            {% endif %}
+            {% if dossier.bilan7 %}
+            <div class="col">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">Bilan7</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan7 }}</li>
+                </ol>
+              </nav>
+            </div>
+            {% endif %}
+            {% if dossier.bilan8 %}
+            <div class="col">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">Bilan8</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan8 }}</li>
+                </ol>
+              </nav>
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-row form-group">
+          {% if dossier.bilan9 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Bilan9</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan9 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+          {% if dossier.cure10 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Bilan10</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.bilan10 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+      </div>
+      {% else %}
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">Aucun bilan biologique</li>
+            </ol>
+          </nav>
+        {% endif %}
+
+
+      <h5>Examens Complémentaires</h5>
+      {% if dossier.examComp1 or dossier.examComp2 or dossier.examComp3 or dossier.examComp4  or dossier.examComp5 or dossier.examComp6 or dossier.examComp7 or dossier.examComp8 or dossier.examComp9 or dossier.examComp10 %}
+      <div class="form-row form-group">
+        {% if dossier.examComp1 %}
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">Examen Complémentaire1</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp1 }}</li>
+            </ol>
+          </nav>
+        </div>
+        {% endif %}
+        {% if dossier.examComp2 %}
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">Examen Complémentaire2</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp2 }}</li>
+            </ol>
+          </nav>
+        </div>
+        {% endif %}
+        {% if dossier.examComp3 %}
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">Examen Complémentaire3</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp3 }}</li>
+            </ol>
+          </nav>
+        </div>
+        {% endif %}
+    </div>
+    <div class="form-row form-group">
+      {% if dossier.examComp4 %}
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">Examen Complémentaire4</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp4 }}</li>
+          </ol>
+        </nav>
+      </div>
+      {% endif %}
+      {% if dossier.examComp5 %}
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">Examen Complémentaire5</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp5 }}</li>
+          </ol>
+        </nav>
+      </div>
+      {% endif %}
+        </div>
+        <div class="form-row form-group">
+          {% if dossier.examComp6 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Examen Complémentaire6</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp6 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+          {% if dossier.examComp7 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Examen Complémentaire7</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp7 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+          {% if dossier.examComp8 %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Examen Complémentaire8</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp8 }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+      </div>
+      <div class="form-row form-group">
+        {% if dossier.examComp9 %}
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">Examen Complémentaire9</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp9 }}</li>
+            </ol>
+          </nav>
+        </div>
+        {% endif %}
+        {% if dossier.examComp10 %}
+        <div class="col">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">Examen Complémentaire10</li>
+              <li class="breadcrumb-item active" aria-current="page">{{ dossier.examComp10 }}</li>
+            </ol>
+          </nav>
+        </div>
+        {% endif %}
+    </div>
+    {% else %}
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">Aucun examen complémentaire</li>
+            </ol>
+          </nav>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+      
       <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
+            <p class="card-title">Diagnostic</p>
 
-
-            <p class="card-title">Diagnostics</p>
+            {% if dossier.ageDecouverte or dossier.circonstance %}
+            <div class="form-row form-group">
               {% if dossier.ageDecouverte %}
+              <div class="col">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Age de Découverte</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.ageDecouverte }} ans</li>
+                    <li class="breadcrumb-item">ADD</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.ageDecouverte }}</li>
                   </ol>
                 </nav>
+              </div>
               {% endif %}
               {% if dossier.circonstance %}
+              <div class="col">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Circonstances de découverte</li>
+                    <li class="breadcrumb-item">CDD</li>
                     <li class="breadcrumb-item active" aria-current="page">{{ dossier.circonstance }}</li>
                   </ol>
                 </nav>
+              </div>
               {% endif %}
+          </div>
+          {% endif %}
+
+          
+          <div class="form-row form-group">
+            <div class="col">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">Type Histologique</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.typeHisto }} ans</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.typeHisto }} </li>
                 </ol>
               </nav>
+            </div>
+            <div class="col">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Classification T</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.clasT }} ans</li>
+                  <li class="breadcrumb-item">Classification TNM</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.clasT }} {{ dossier.clasN }} {{ dossier.clasM }}</li>
                 </ol>
               </nav>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Classification N</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.clasN }} ans</li>
-                </ol>
-              </nav>
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Classification M</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.clasM }} ans</li>
-                </ol>
-              </nav>
-              {% if dossier.metastase %}
+            </div>
+        </div>
+
+        {% if dossier.metastase or dossier.stade or dossier.risque %}
+        <div class="form-row form-group">
+          {% if dossier.metastase %}
+          <div class="col">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item">Metastase</li>
                     <li class="breadcrumb-item active" aria-current="page">{{ dossier.metastase }}</li>
                   </ol>
                 </nav>
-              {% endif %}
-              {% if dossier.stade %}
+          </div>
+          {% endif %}
+          {% if dossier.stade %}
+          <div class="col">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item">Stade</li>
                     <li class="breadcrumb-item active" aria-current="page">{{ dossier.stade }}</li>
                   </ol>
                 </nav>
-              {% endif %}
-              {% if dossier.risque %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Risques</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.risque }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.totalChir %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Totalisations chirugicales</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.totalChir }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.nbrCure %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Nombre de Cure</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.nbrCure }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.activiteCumule %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Activités Cumulées</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.activiteCumule }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-
-            <h5>Cures</h5>
-            {% if dossier.cure1 or dossier.cure2 or dossier.cure3 or dossier.cure4 or dossier.cure5 or dossier.cure6 or dossier.cure7 or dossier.cure8 or dossier.cure9 or dossier.cure10 %}
-              {% if dossier.cure1 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Cure1</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure1 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.cure2 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Cure2</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure2 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.cure3 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Cure3</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure3 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.cure4 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Cure4</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure4 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.cure5 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Cure5</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure5 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.cure6 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Cure6</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure6 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.cure7 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Cure7</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure7 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.cure8 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Cure8</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure8 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.cure9 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Cure9</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure9 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.cure10 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Cure10</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.cure10 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-            {% else %}
+          </div>
+          {% endif %}
+          {% if dossier.risque %}
+          <div class="col">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">Aucune</li>
+                <li class="breadcrumb-item">Risque</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.risque }}</li>
               </ol>
             </nav>
-            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
 
-            <h5>Défrénations</h5>
-            {% if dossier.defrenation1 or dossier.defrenation2 or dossier.defrenation3 %}
-              {% if dossier.defrenation1 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Defrenation1</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.defrenation1 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.defrenation2 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Defrenation2</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.defrenation2 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% if dossier.defrenation3 %}
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Defrenation3</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.defrenation3 }}</li>
-                  </ol>
-                </nav>
-              {% endif %}
-              {% else %}
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">Aucun</li>
-                </ol>
-              </nav>
-              {% endif %}
-
-
-            <br/>
             <p class="card-title">Résumé et Consignes</p>
             <div class="d-flex justify-content-between">
-              <h5>Résumé</h5>
+              <h4>Résumé</h4>
             </div>
             {% if dossier.resume %}
             <nav aria-label="breadcrumb">
@@ -508,9 +644,8 @@
             </nav>
             {% endif %}
 
-            <br/>
             <div class="d-flex justify-content-between">
-              <h5>Consignes</h5>
+              <h4>Consignes</h4>
             </div>
             {% if dossier.resume %}
             <nav aria-label="breadcrumb">
@@ -525,10 +660,9 @@
               </ol>
             </nav>            
             {% endif %}
-
-            <br/>
+            
             <nav aria-label="breadcrumb">
-              <h5>Prochaine consultation</h5>
+              <h4>Prochaine consultation</h4>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">{{ dossier.dateRdv}}</li>
               </ol>

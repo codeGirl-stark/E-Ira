@@ -36,7 +36,7 @@
             </div>
             <div class="col">
                 <label for="Naissance">Année de naissance :</label>
-                <input class="form-control" type="number" id="Naissance" name="nais" min="1900" max="2024" placeholder="2024" required>
+                <input class="form-control" type="number" id="Naissance" name="nais" min="1900" max="2024" placeholder=2024 required>
                 <input type="hidden" name="age" value="{{ageDepart}}" >
             </div>
         </div>
@@ -78,17 +78,17 @@
             </div>
         </div>
 
-        <h4>Diagnostics</h4>
+        <h4>Diagnostic</h4>
         <div class="form-row form-group">
             <div class="col">
                 <label for="decouverte">Age de découverte :</label>
-                <input class="form-control" type="number" id="decouverte" name="ageDecouverte" placeholder="30" required>
+                <input class="form-control" type="number" id="decouverte" name="ageDecouverte" value=0>
             </div>
             <div class="col">
                 <label for="select">Circonstances de découverte :</label>
                 <select  name="circonstance" class="form-control" id="select" >
                 <option value="">Choisir</option>
-                  <option value="Module">Module</option>
+                  <option value="Nodule">Nodule</option>
                   <option value="GMN">GMN</option>
                   <option value="ADP">ADP</option>
                   <option value="Metastase">Métastase</option>
@@ -99,7 +99,6 @@
                 <label for="select">Type Histologique :</label>
                 <select  name="typeHisto" class="form-control" id="select" required>
                     <option value="">Choisir</option>
-                    <option value="Micro">Micro</option>
                     <option value="Papillaire">Papillaire</option>
                     <option value="Vesiculaire">Vésiculaire</option>
                     <option value="PapilloVesiculaire">PapilloVesiculaire</option>
@@ -192,23 +191,12 @@
                 </select>
             </div>
             <div class="col">
-                <label for="select">Nombre de Cures:</label>
-                <select  name="nbrCure" class="form-control" id="select" >
-                    <option value="">Choisir</option>
-                    <option value="1-5">1 à 5</option>
-                    <option value="5-10">5 à 10</option>
-                    <option value=">10">Supérieur à 10</option>
-                </select>
+                <label for="decouverte">Nombre de Cures :</label>
+                <input class="form-control" type="number" id="decouverte" name="nbrCure" value=0>
             </div>
             <div class="col">
-                <label for="select">Activités cumulées :</label>
-                <select  name="activiteCumule" class="form-control" id="select" >
-                    <option value="">Choisir</option>
-                    <option value="50-200">50 à 200</option>
-                    <option value="200-300">200 à 300</option>
-                    <option value="300-400">300 à 400</option>
-                    <option value=">= 500">Supérieur ou égal à 500</option>
-                </select>
+                <label for="decouverte">Activités cumulées:</label>
+                <input class="form-control" type="number" id="decouverte" name="activiteCumule" value=0>
             </div>
         </div>
 
@@ -366,7 +354,7 @@
             </div>
         </div>
 
-        <h4>Résumé Plus Consignes</h4>
+        <h4>Résumé Et Consignes</h4>
         <div class="form-row form-group">
             <div class="col">
                 <label for="Résumé">Résumé :</label>
