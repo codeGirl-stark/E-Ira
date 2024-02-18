@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
 from django.db import models
 from dossier.models import DossierMedical
+from log.models import Log
 from medecin.models import Medecin
 import csv
 from django.apps import apps
@@ -45,16 +46,21 @@ def addDossier (request) :
             carcinome = request.POST.get('carcinome')
             ageDecouverte = request.POST.get('ageDecouverte')
             circonstance = request.POST.get('circonstance')
+            anteFamiliaux = request.POST.get('anteFamiliaux')
             typeHisto = request.POST.get('typeHisto')
             clasT = request.POST.get('clasT')
             clasN = request.POST.get('clasN')
             clasM = request.POST.get('clasM')
+            multifoc = request.POST.get('multifoc')
+            effraCapsulaire = request.POST.get('effraCapsulaire')
+            embonVasculaire = request.POST.get('embonVasculaire')
             metastase = request.POST.get('metastase')
             stade = request.POST.get('stade')
             risque = request.POST.get('risque')
             totalChir = request.POST.get('totalChir')
             nbrCure = request.POST.get('nbrCure')
             activiteCumule = request.POST.get('activiteCumule')
+            thera = request.POST.get('thera')
             cure1 = request.POST.get('cure1')
             cure2 = request.POST.get('cure2')
             cure3 = request.POST.get('cure3')
@@ -90,6 +96,7 @@ def addDossier (request) :
             examComp10 = request.POST.get('examen10')
             resume = request.POST.get('resume')
             consigne = request.POST.get('consigne')
+            refrac = request.POST.get('refrac')
             dateRDV = request.POST.get('dateRDV')
             
             dossier = DossierMedical.objects.filter(numDossier=num).first()
@@ -110,18 +117,23 @@ def addDossier (request) :
                         telephone=phone,
                         antecedent = antecedent,
                         carcinome = carcinome,
+                        anteFamiliaux = anteFamiliaux,
                         ageDecouverte = ageDecouverte,
                         circonstance = circonstance,
                         typeHisto = typeHisto,
                         clasT = clasT,
                         clasN = clasN,
                         clasM = clasM,
+                        multifoc = multifoc,
+                        effraCapsulaire= effraCapsulaire,
+                        embonVasculaire = embonVasculaire,
                         metastase = metastase, 
                         stade = stade,
                         risque = risque,
                         totalChir = totalChir,
                         nbrCure = nbrCure, 
                         activiteCumule = activiteCumule,
+                        thera =thera,
                         cure1 = cure1,
                         cure2 = cure2,
                         cure3 = cure3,
@@ -157,11 +169,19 @@ def addDossier (request) :
                         examComp10 = examComp10,
                         resume = resume,
                         consigne = consigne,
+                        refrac = refrac,
                         dateRdv = dateRDV,
                         medecin = medecin_actif,
                     )
-                    
                     dossier.save()
+                    
+                    log = Log(
+                        date = day,
+                        libelle = f"Enregistrement de dossier du pateint {identite}",
+                        medecin = medecin_actif,
+                    )
+                    log.save()
+                    
                     return redirect('liste')
                 else :
                     return HttpResponse('Date incorrecte.')
@@ -194,12 +214,23 @@ def liste(request):
 
 
 def delete(request,id) :
+    date = datetime.now()
+    medecin = get_object_or_404(Medecin, is_active=True)
+
     
     dossier = get_object_or_404(DossierMedical, id=id)
     dossier.delete()
+    log = Log(
+        date = date,
+        libelle = f"Suppresion du dossier du patient {dossier.identite}",
+        medecin = medecin,
+    )
+    log.save()
+    
     return redirect('liste')
 
     return render(request, "confirm.html")
+
 
 def detail(request, id) :
     dossier = get_object_or_404(DossierMedical, id=id)
@@ -218,6 +249,7 @@ def date_naissance(age):
 
 
 def update(request, id) :
+    medecin = get_object_or_404(Medecin, is_active=True)
     dossier = get_object_or_404(DossierMedical, id=id)
     naissance = date_naissance(dossier.age).year
     day = datetime.now()
@@ -342,6 +374,14 @@ def update(request, id) :
         dossier.dateRdv = dateRDV
         
         dossier.save()
+        
+        log = Log(
+            date = day,
+            libelle = f"Modification du dossier du patient {identite}",
+            medecin = medecin,
+        )
+        log.save()
+    
         return redirect('liste')
     
     return render(request, 'updateDossier.html', {'dossier': dossier, 'naissance' : naissance})
@@ -370,6 +410,9 @@ def visitesJour(request):
 
 
 def search (request) :
+    date = datetime.now()
+    medecin = get_object_or_404(Medecin, is_active=True)
+
     if request.method == "POST" :
         recherche = request.POST.get("search", "")
         patients = DossierMedical.objects.filter(
@@ -377,12 +420,20 @@ def search (request) :
             models.Q(identite__icontains=recherche)
         )
         
+        log = Log(
+            date = date,
+            libelle = "Recherche",
+            medecin = medecin,
+        )
+        log.save()
+        
         return render(request, 'resultat_search.html', {'patients': patients})
 
     return render(request, "includes/header.html")
 
 
 def rechercheVisite (request) :
+    date = datetime.now()
     medecin = get_object_or_404(Medecin, is_active=True)
 
     if request.method == "POST" :
@@ -400,7 +451,16 @@ def rechercheVisite (request) :
                 'message' : message,
                 'date'    : date_recherchee,
             }
+            
+            log = Log(
+            date = date,
+            libelle = f"Recherche des visites du {date_recherchee}",
+            medecin = medecin,
+            )
+            log.save()
+            
             return render(request, "listeVisite.html", context)
+        
 
     return render (request, "listeVisite.html")
 
@@ -410,6 +470,9 @@ def export (request) :
     return render(request, "export.html")
 
 def export_to_csv (request) :
+    date = datetime.now()
+    medecin = get_object_or_404(Medecin, is_active=True)
+
     csv_filename = "base.csv"
 
     # Liste de tous les modèles dans l'application
@@ -435,6 +498,13 @@ def export_to_csv (request) :
     # Réponse HTTP pour télécharger le fichier CSV
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="base.csv"'
+    
+    log = Log(
+        date = date,
+        libelle = "Téléchargement de la base de données sous format CSV",
+        medecin = medecin,
+        )
+    log.save()
 
     # Copie du contenu du fichier CSV dans la réponse HTTP
     with open(csv_filename, 'r') as csv_file:
@@ -444,6 +514,9 @@ def export_to_csv (request) :
     
     
 def export_to_sqlite(request):
+    date = datetime.now()
+    medecin = get_object_or_404(Medecin, is_active=True)
+    
     # Chemin du fichier SQLite actuel
     db_path = settings.DATABASES['default']['NAME']
 
@@ -456,12 +529,19 @@ def export_to_sqlite(request):
     # Réponse HTTP pour télécharger le fichier SQLite
     response = HttpResponse(content_type='application/x-sqlite3')
     response['Content-Disposition'] = 'attachment; filename="base.sqlite3"'
+    
+    log = Log(
+        date = date,
+        libelle = "Téléchargement de la base de données sous format Sqlite",
+        medecin = medecin,
+        )
+    log.save()
 
     # Copie du contenu du fichier SQLite dans la réponse HTTP
     with open(exported_db_path, 'rb') as db_file:
         response.write(db_file.read())
 
-    # Suppression du fichier exporté (commenter cette ligne si vous souhaitez conserver le fichier)
+    # Suppression du fichier exporté 
     os.remove(exported_db_path)
 
     return response

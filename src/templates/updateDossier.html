@@ -31,7 +31,7 @@
                 <input class="form-control" type="text" id="nomPatient" name="identite" value="{{dossier.identite}}" required>
             </div>
             <div class="form-group">
-                <label for="exampleSelectGender">Sexe</label>
+                <label for="exampleSelectGender">Sexe :</label>
                 <select  name="sexe" class="form-control" id="exampleSelectGender" required>
                     <option value="M" {% if dossier.sexe == 'M' %}selected{% endif %}>Masculin</option>
                     <option value="F" {% if dossier.sexe == 'F' %}selected{% endif %}>Féminin</option>
@@ -56,11 +56,11 @@
         <h4>Antécédents</h4>
         <div class="form-row form-group">
             <div class="col">
-                <label for="Diagnostics">Antecedents Personnels :</label>
+                <label for="Diagnostics">Antecedents personnels :</label>
                 <textarea class="form-control" name="antecedent" id="Diagnostics" rows="4" >{{dossier.antecedent}}</textarea>            
             </div>
             <div class="col">
-                <label for="tel">Carcinome Familiale :</label>
+                <label for="tel">Carcinome familial :</label>
                 <div class="col-md-6">
                     <div class="form-group">
                         {% if dossier.carcinome == "oui" %}
@@ -93,6 +93,10 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+                <label for="Diagnostics">Autres antécédents familiaux :</label>
+                <textarea class="form-control" name="anteFamiliaux" id="Diagnostics" rows="4">{{dossier.anteFamiliaux}}</textarea>
+            </div>
         </div>
 
         <h4>Diagnostic</h4>
@@ -106,6 +110,7 @@
                 <select  name="circonstance" class="form-control" id="select" >
                 <option value="">Choisir</option>
                   <option value="Nodule" {% if dossier.circonstance == 'Nodule' %}selected{% endif %}>Nodule</option>
+                  <option value="Decouverte fortuite" {% if dossier.circonstance == 'Decouverte fortuite' %}selected{% endif %}>Découverte fortuite</option>  
                   <option value="GMN" {% if dossier.circonstance == 'GNM' %}selected{% endif %}>GMN</option>
                   <option value="ADP" {% if dossier.circonstance == 'ADP' %}selected{% endif %}>ADP</option>
                   <option value="Metastase" {% if dossier.circonstance == 'Metastase' %}selected{% endif %}>Métastase</option>
@@ -113,7 +118,7 @@
                 </select>
             </div>
             <div class="col">
-                <label for="select">Type Histologique :</label>
+                <label for="select">Type histologique :</label>
                 <select  name="typeHisto" class="form-control" id="select" required>
                     <option value="">Choisir</option>
                     <option value="Papillaire" {% if dossier.typeHisto == 'Papillaire' %}selected{% endif %}>Papillaire</option>
@@ -121,14 +126,14 @@
                     <option value="PapilloVesiculaire" {% if dossier.typeHisto == 'PapilloVesiculaire' %}selected{% endif %}>PapilloVesiculaire</option>
                     <option value="Medullaire" {% if dossier.typeHisto == 'Medullaire' %}selected{% endif %}>Médullaire</option>
                     <option value="Anaplasique" {% if dossier.typeHisto == 'Anaplasique' %}selected{% endif %}>Anaplasique</option>
-                    <option value="Autres" {% if dossier.typeHisto == 'Autres' %}selected{% endif %}>Autres</option>
+                    <option value="Autre" {% if dossier.typeHisto == 'Autre' %}selected{% endif %}>Autre</option>
                 </select>
             </div>
         </div>
         <h5>Classifications</h5>
         <div class="form-row form-group">
             <div class="col">
-                <label for="select">T:</label>
+                <label for="select">T :</label>
                 <select  name="clasT" class="form-control" id="select" required>
                     <option value="">Choisir</option>
                     <option value="Tx" {% if dossier.clasT == 'Tx' %}selected{% endif %}>Tx</option>
@@ -143,7 +148,7 @@
                 </select>
             </div>
             <div class="col">
-                <label for="select">N:</label>
+                <label for="select">N :</label>
                 <select  name="clasN" class="form-control" id="select" required>
                     <option value="">Choisir</option>
                     <option value="Nx" {% if dossier.clasN == 'Nx' %}selected{% endif %}>Nx</option>
@@ -153,13 +158,90 @@
                 </select>
             </div>
             <div class="col">
-                <label for="select">M:</label>
+                <label for="select">M :</label>
                 <select  name="clasM" class="form-control" id="select" required>
                     <option value="">Choisir</option>
                     <option value="Mx" {% if dossier.clasM == 'Mx' %}selected{% endif %}>Mx</option>
                     <option value="M0" {% if dossier.clasM == 'M0' %}selected{% endif %}>M0</option>
                     <option value="M1" {% if dossier.clasM == 'M1' %}selected{% endif %}>M1</option>
                 </select>
+            </div>
+            <div class="col">
+                <label for="select">Multifocalité :</label>
+                <select  name="multifoc" class="form-control" id="select">
+                    <option value="">Choisir</option>
+                    <option value="Unifocale" {% if dossier.multifoc == 'Unifocale' %}selected{% endif %}>Unifocale</option>
+                    <option value="Bifocale" {% if dossier.multifoc == 'Bifocale' %}selected{% endif %}>Bifocale</option>
+                    <option value="Multifocale" {% if dossier.multifoc == 'Multifocale' %}selected{% endif %}>Multifocale</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="tel">Effraction capsulaire :</label>
+                <div class="form-group">
+                    {% if dossier.effraCapsulaire == "oui" %}
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="effraCapsulaire" id="optionsRadios1" value="oui" checked>
+                            oui
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="effraCapsulaire" id="optionsRadios2" value="non" >
+                            non
+                            </label>
+                        </div>
+                    {% else %}
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="effraCapsulaire" id="optionsRadios2" value="oui" >
+                            oui
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="effraCapsulaire" id="optionsRadios2" value="non" checked>
+                            non
+                            </label>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="tel">Embon vasculaire :</label>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        {% if dossier.embonVasculaire == "oui" %}
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="embonVasculaire" id="optionsRadios1" value="oui" checked>
+                            oui
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="embonVasculaire" id="optionsRadios2" value="non" >
+                            non
+                            </label>
+                        </div>
+                    {% else %}
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="embonVasculaire" id="optionsRadios2" value="oui" >
+                            oui
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="embonVasculaire" id="optionsRadios2" value="non" checked>
+                            non
+                            </label>
+                        </div>
+                    {% endif %}
+                    </div>
+                </div>
             </div>
             <div class="col">
                 <label for="select">Metastase :</label>
@@ -171,7 +253,7 @@
                     <option value="Oseuse" {% if dossier.metastase == 'Oseuse' %}selected{% endif %}>Oseuse</option>
                     <option value="Hepatique" {% if dossier.metastase == 'Hepatique' %}selected{% endif %}>Hépatique</option>
                     <option value="Cerebrale" {% if dossier.metastase == 'Cerebrale' %}selected{% endif %}>Cérébrale</option>
-                    <option value="Autres" {% if dossier.metastase == 'Autres' %}selected{% endif %}>Autres</option>
+                    <option value="Autre" {% if dossier.metastase == 'Autre' %}selected{% endif %}>Autre</option>
                 </select>
             </div>
             <div class="col">
@@ -214,6 +296,10 @@
             <div class="col">
                 <label for="decouverte">Activités cumulées :</label>
                 <input class="form-control" type="number" id="decouverte" name="activiteCumule" value={{dossier.activiteCumule}}>
+            </div>
+            <div class="col">
+                <label for="Diagnostics">Autres thérapeutiques :</label>
+                <textarea class="form-control" name="thera" id="Diagnostics" rows="4">{{dossier.thera}}</textarea>
             </div>
         </div>
 
@@ -382,6 +468,40 @@
                 <label for="Consignes">Consignes :</label>
                 <textarea class="form-control" name="consigne" id="Consignes" rows="4" >{{dossier.consigne}}</textarea>            
             </div>
+            <div class="col">
+                <label for="tel">Réfractère :</label>
+                <div class="form-group">
+                    {% if dossier.refrac == "oui" %}
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="refrac" id="optionsRadios1" value="oui" checked>
+                            oui
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="refrac" id="optionsRadios2" value="non" >
+                            non
+                            </label>
+                        </div>
+                    {% else %}
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="refrac" id="optionsRadios2" value="oui" >
+                            oui
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="refrac" id="optionsRadios2" value="non" checked>
+                            non
+                            </label>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="form-row form-group">
             <div class="col">
                 <label for="RDV">Date du prochain rendez-vous :</label>
                 <input class="form-control" type="date" id="RDV" name="dateRDV" value="{{dossier.dateRdv|date:'Y-m-d'}}">            

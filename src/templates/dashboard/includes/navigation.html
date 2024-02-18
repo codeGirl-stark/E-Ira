@@ -22,13 +22,27 @@
      
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#rdv" aria-expanded="false" aria-controls="rdv">
-          <i class="icon-bar-graph menu-icon"></i>
+          <i class="icon-layout menu-icon"></i>
           <span class="menu-title">Vos Rendez-vous</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="rdv">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{% url 'visitesJour' %}">Liste des RDV</a></li>
+          </ul>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#stat" aria-expanded="false" aria-controls="stat">
+          <i class="icon-bar-graph menu-icon"></i>
+          <span class="menu-title">Vos statistiques</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="stat">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{% url 'stat' %}">Statistiques</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'export' %}">Exporter la BDD</a></li>
           </ul>
         </div>
       </li>
@@ -41,8 +55,7 @@
         </a>
         <div class="collapse" id="compte">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{% url 'stat' %}">Vos statistiques</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{% url 'export' %}">Exporter la BDD</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'logListe' %}">Log</a></li>
             <li class="nav-item"> <a class="nav-link" href="{% url 'deconnect' %}">Se déconnecter</a></li>
           </ul>
         </div>

@@ -27,7 +27,7 @@
                 <input class="form-control" type="text" id="nomPatient" name="identite" placeholder="DOSSOU Jean" required>
             </div>
             <div class="col">
-                <label for="select">Sexe</label>
+                <label for="select">Sexe :</label>
                 <select  name="sexe" class="form-control" id="select" required>
                     <option value="">Choisir</option>
                     <option value="M">Masculin</option>
@@ -54,11 +54,11 @@
         <h4>Antécédents</h4>
         <div class="form-row form-group">
             <div class="col">
-                <label for="Diagnostics">Antecedents Personnels :</label>
+                <label for="Diagnostics">Antécédents personnels :</label>
                 <textarea class="form-control" name="antecedent" id="Diagnostics" rows="4"></textarea>
             </div>
             <div class="col">
-                <label for="tel">Carcinome Familiale :</label>
+                <label for="tel">Carcinome familial :</label>
                 <div class="col-md-6">
                     <div class="form-group">
                         <div class="form-check">
@@ -76,6 +76,10 @@
                     </div>
                 </div>
             </div>
+            <div class="col">
+                <label for="Diagnostics">Autres antécédents familiaux :</label>
+                <textarea class="form-control" name="anteFamiliaux" id="Diagnostics" rows="4"></textarea>
+            </div>
         </div>
 
         <h4>Diagnostic</h4>
@@ -89,6 +93,7 @@
                 <select  name="circonstance" class="form-control" id="select" >
                 <option value="">Choisir</option>
                   <option value="Nodule">Nodule</option>
+                  <option value="Decouverte fortuite">Découverte fortuite</option>
                   <option value="GMN">GMN</option>
                   <option value="ADP">ADP</option>
                   <option value="Metastase">Métastase</option>
@@ -96,7 +101,7 @@
                 </select>
             </div>
             <div class="col">
-                <label for="select">Type Histologique :</label>
+                <label for="select">Type histologique :</label>
                 <select  name="typeHisto" class="form-control" id="select" required>
                     <option value="">Choisir</option>
                     <option value="Papillaire">Papillaire</option>
@@ -104,14 +109,14 @@
                     <option value="PapilloVesiculaire">PapilloVesiculaire</option>
                     <option value="Medullaire">Médullaire</option>
                     <option value="Anaplasique">Anaplasique</option>
-                    <option value="Autres">Autres</option>
+                    <option value="Autre">Autre</option>
                 </select>
             </div>
         </div>
         <h5>Classifications</h5>
         <div class="form-row form-group">
             <div class="col">
-                <label for="select">T:</label>
+                <label for="select">T :</label>
                 <select  name="clasT" class="form-control" id="select" required>
                     <option value="">Choisir</option>
                     <option value="Tx">Tx</option>
@@ -126,7 +131,7 @@
                 </select>
             </div>
             <div class="col">
-                <label for="select">N:</label>
+                <label for="select">N :</label>
                 <select  name="clasN" class="form-control" id="select" required>
                     <option value="">Choisir</option>
                     <option value="Nx">Nx</option>
@@ -136,13 +141,62 @@
                 </select>
             </div>
             <div class="col">
-                <label for="select">M:</label>
+                <label for="select">M :</label>
                 <select  name="clasM" class="form-control" id="select" required>
                     <option value="">Choisir</option>
                     <option value="Mx">Mx</option>
                     <option value="M0">M0</option>
                     <option value="M1">M1</option>
                 </select>
+            </div>
+            <div class="col">
+                <label for="select">Multifocalité :</label>
+                <select  name="multifoc" class="form-control" id="select">
+                    <option value="">Choisir</option>
+                    <option value="Unifocale">Unifocale</option>
+                    <option value="Bifocale">Bifocale</option>
+                    <option value="Multifocale">Multifocale</option>
+                </select>
+            </div>
+            <div class="col">
+                <label for="tel">Effraction capsulaire :</label>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="effraCapsulaire" id="optionsRadios1" value="oui">
+                            oui
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="effraCapsulaire" id="optionsRadios2" value="non" checked>
+                            non
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row form-group">
+            <div class="col">
+                <label for="tel">Embon vasculaire :</label>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="embonVasculaire" id="optionsRadios1" value="oui">
+                            oui
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="embonVasculaire" id="optionsRadios2" value="non" checked>
+                            non
+                            </label>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col">
                 <label for="select">Metastase :</label>
@@ -154,7 +208,7 @@
                     <option value="Oseuse">Oseuse</option>
                     <option value="Hepatique">Hépatique</option>
                     <option value="Cerebrale">Cérébrale</option>
-                    <option value="Autres">Autres</option>
+                    <option value="Autre">Autre</option>
                 </select>
             </div>
             <div class="col">
@@ -182,7 +236,7 @@
         <h4>Traitements</h4>
         <div class="form-row form-group">
             <div class="col">
-                <label for="select">Totalisation Chirugicale:</label>
+                <label for="select">Totalisation Chirugicale :</label>
                 <select  name="totalChir" class="form-control" id="select" >
                     <option value="">Choisir</option>
                     <option value="1 temps">1 Temps</option>
@@ -195,8 +249,12 @@
                 <input class="form-control" type="number" id="decouverte" name="nbrCure" value=0>
             </div>
             <div class="col">
-                <label for="decouverte">Activités cumulées:</label>
+                <label for="decouverte">Activités cumulées :</label>
                 <input class="form-control" type="number" id="decouverte" name="activiteCumule" value=0>
+            </div>
+            <div class="col">
+                <label for="Diagnostics">Autres thérapeutiques :</label>
+                <textarea class="form-control" name="thera" id="Diagnostics" rows="4"></textarea>
             </div>
         </div>
 
@@ -364,6 +422,27 @@
                 <label for="Consignes">Consignes :</label>
                 <textarea class="form-control" name="consigne" id="Consignes" rows="4" ></textarea>
             </div>
+            <div class="col">
+                <label for="tel">Réfractère :</label>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="refrac" id="optionsRadios1" value="oui">
+                            oui
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="refrac" id="optionsRadios2" value="non" checked>
+                            non
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-row form-group">
             <div class="col">
                 <label for="RDV">Date du prochain rendez-vous :</label>
                 <input class="form-control" type="date" id="RDV" name="dateRDV">

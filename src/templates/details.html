@@ -93,15 +93,25 @@
             <div class="col">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Carcinome</li>
+                  <li class="breadcrumb-item">Carcinome familial</li>
                   <li class="breadcrumb-item active" aria-current="page">{{ dossier.carcinome}}</li>
                 </ol>
               </nav>
             </div>
+            {% if dossier.anteFamiliaux %}
+            <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Autres antécédents familiaux</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.anteFamiliaux}}</li>
+              </ol>
+            </nav>           
+            </div>
+            {% endif %}
           </div>
             
           <h4>Traitements</h4>
-          {% if dossier.totalChir or dossier.nbrCure or dossier.activiteCumule %}
+          {% if dossier.totalChir or dossier.nbrCure or dossier.activiteCumule or dossier.thera %}
           <div class="form-row form-group">
             {% if dossier.totalChir %}
             <div class="col">
@@ -129,6 +139,16 @@
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item">Activités Cumulées</li>
                   <li class="breadcrumb-item active" aria-current="page">{{ dossier.activiteCumule }}</li>
+                </ol>
+              </nav>
+            </div>
+            {% endif %}
+            {% if dossier.thera %}
+            <div class="col">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">Autres thérapeutiques</li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.thera }}</li>
                 </ol>
               </nav>
             </div>
@@ -254,7 +274,7 @@
           </nav>
         {% endif %}
 
-        <h5>Défrénation</h5>
+        <h5>Défrénations</h5>
         {% if dossier.defrenation1 or dossier.defrenation2 or dossier.defrenation3 %}
         <div class="form-row form-group">
           {% if dossier.defrenation1 %}
@@ -576,7 +596,7 @@
             <div class="col">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Type Histologique</li>
+                  <li class="breadcrumb-item">Type histologique</li>
                   <li class="breadcrumb-item active" aria-current="page">{{ dossier.typeHisto }} </li>
                 </ol>
               </nav>
@@ -590,6 +610,42 @@
               </nav>
             </div>
         </div>
+
+        {% if dossier.multifoc or dossier.effaCapsulaire or dossier.embonVasculaire %}
+        <div class="form-row form-group">
+          {% if dossier.multifoc %}
+          <div class="col">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Multifocalité</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.multifoc }}</li>
+                  </ol>
+                </nav>
+          </div>
+          {% endif %}
+          {% if dossier.effaCapsulaire %}
+          <div class="col">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item">Effraction capsulaire</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.effaCapsulaire }}</li>
+                  </ol>
+                </nav>
+          </div>
+          {% endif %}
+          {% if dossier.embonVasculaire %}
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">Embon vasculaire</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.embonVasculaire }}</li>
+              </ol>
+            </nav>
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+
 
         {% if dossier.metastase or dossier.stade or dossier.risque %}
         <div class="form-row form-group">
@@ -660,14 +716,21 @@
               </ol>
             </nav>            
             {% endif %}
-            
+
+            <div class="d-flex justify-content-between">
+              <h4>Réfractère</h4>
+            </div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">{{ dossier.refrac}}</li>
+              </ol>
+            </nav>
             <nav aria-label="breadcrumb">
               <h4>Prochaine consultation</h4>
               <ol class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">{{ dossier.dateRdv}}</li>
               </ol>
-            </nav>
-            
+            </nav>  
           </div>
         </div>
       </div>

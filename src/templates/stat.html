@@ -42,11 +42,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Hommes</p>
+                    <p class="mb-8 text-center">Hommes</p>
                     {% if homme == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{homme}}</p>
+                    <p class="">Poucentage : {{stathomme}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -54,37 +56,136 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Femmes</p>
+                    <p class="mb-8 text-center">Femmes</p>
                     {% if femme == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{femme}}</p>
+                    <p class="">Poucentage : {{statfemme}} % </p>
                     {% endif %}
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <h4>Age</h4>
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
             <div class="row">
-              <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                <div class="card card-light-blue">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Patients de moins de 60ans</p>
+                    <p class="mb-8 text-center">Moins de 40ans</p>
                     {% if ado == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{ado}}</p>
+                    <p class="">Poucentage : {{statAdo}} % </p>
                     {% endif %}
                   </div>
                 </div>
               </div>
-              <div class="col-md-6 stretch-card transparent">
-                <div class="card card-light-danger">
-                  <div class="card-body">
-                    <p class="mb-4">Patients de plus de 60ans</p>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-8 text-center">40 à 60ans</p>
+                    {% if perso == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{perso}}</p>
+                    <p class="">Poucentage : {{statPerso}} % </p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-8 text-center">Plus de 60ans</p>
                     {% if adulte == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{adulte}}</p>
+                    <p class="">Poucentage : {{statAdulte}} % </p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-tale align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-8 text-center">Carcinome familial</p>
+                    {% if carcinome == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{carcinome}}</p>
+                    <p class="">Poucentage : {{statCarcinome}} % </p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-dark-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-8 text-center">Effraction capsulaire</p>
+                    {% if effra == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{effra}}</p>
+                    <p class="">Poucentage : {{statEffra}} % </p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 grid-margin transparent">
+            <div class="row">
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-blue align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-8 text-center">Embon vasculaire</p>
+                    {% if embon == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{embon}}</p>
+                    <p class="">Poucentage : {{statEmbon}} % </p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 stretch-card transparent">
+                <div class="card card-light-danger align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-8 text-center">Réfractère</p>
+                    {% if refrac == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{refrac}}</p>
+                    <p class="">Poucentage : {{statRefrac}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -100,11 +201,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Moins de 40ans</p>
+                    <p class="mb-8 text-center">Moins de 25ans</p>
                     {% if agedec1 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{agedec1}}</p>
+                    <p class="">Poucentage : {{statAgedec1}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -112,11 +215,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">40 à 50 ans</p>
+                    <p class="mb-8 text-center">25 à 40 ans</p>
                     {% if agedec2 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{agedec2}}</p>
+                    <p class="">Poucentage : {{statAgedec2}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -124,13 +229,29 @@
             </div>
             <div class="row">
               <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                <div class="card tale-bg align-items-center justify-content-center">
+                <div class="card card-light-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Plus de 70ans</p>
+                    <p class="mb-8 text-center">60 à 70ans</p>
                     {% if agedec5 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{agedec5}}</p>
+                    <p class="">Poucentage : {{statAgedec5}} % </p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                <div class="card tale-bg align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-8 text-center">Plus de 70ans</p>
+                    {% if agedec6 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{agedec6}}</p>
+                    <p class="">Poucentage : {{statAgedec6}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -142,11 +263,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">50 à 60 ans</p>
+                    <p class="mb-8 text-center">40 à 50 ans</p>
                     {% if agedec3 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{agedec3}}</p>
+                    <p class="">Poucentage : {{statAgedec3}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -154,11 +277,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">60 à 70 ans</p>
+                    <p class="mb-8 text-center">50 à 60 ans</p>
                     {% if agedec4 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{agedec4}}</p>
+                    <p class="">Poucentage : {{statAgedec4}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -175,11 +300,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Module</p>
+                    <p class="mb-8 text-center">Nodule</p>
                     {% if circonstance1 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{circonstance1}}</p>
+                    <p class="">Poucentage : {{statci1}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -187,11 +314,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">GMN</p>
+                    <p class="mb-8 text-center">Découverte fortuite</p>
                     {% if circonstance2 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{circonstance2}}</p>
+                    <p class="">Poucentage : {{statci2}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -199,13 +328,29 @@
             </div>
             <div class="row">
               <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-                <div class="card tale-bg align-items-center justify-content-center">
+                <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Autres</p>
+                    <p class="mb-8 text-center">Métastase</p>
                     {% if circonstance5 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{circonstance5}}</p>
+                    <p class="">Poucentage : {{statci5}} % </p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                <div class="card tale-bg align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-8 text-center">Autres</p>
+                    {% if circonstance6 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{circonstance6}}</p>
+                    <p class="">Poucentage : {{statci6}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -217,11 +362,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">ADP</p>
+                    <p class="mb-8 text-center">GMN</p>
                     {% if circonstance3 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{circonstance3}}</p>
+                    <p class="">Poucentage : {{statci3}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -229,11 +376,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Métastase</p>
+                    <p class="mb-8 text-center">ADP</p>
                     {% if circonstance4 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{circonstance4}}</p>
+                    <p class="">Poucentage : {{statci4}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -249,11 +398,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Micro</p>
+                    <p class="mb-8 text-center">Papillaire</p>
                     {% if type1 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{type1}}</p>
+                    <p class="">Poucentage : {{statType1}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -261,11 +412,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Papillaire</p>
+                    <p class="mb-8 text-center">Vésiculaire</p>
                     {% if type2 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{type2}}</p>
+                    <p class="">Poucentage : {{statType2}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -275,11 +428,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card tale-bg align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Vésiculaire</p>
-                    {% if type3 == 0 %}
+                    <p class="mb-8 text-center">Anaplasique</p>
+                    {% if type5 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
-                    <p class="fs-30 mb-2 text-center">{{type3}}</p>
+                    <p class="fs-30 mb-2 text-center">{{type5}}</p>
+                    <p class="">Poucentage : {{statType5}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -287,11 +442,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">PapilloVesiculaire</p>
-                    {% if type4 == 0 %}
+                    <p class="mb-8 text-center">Autres</p>
+                    {% if type6 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
-                    <p class="fs-30 mb-2 text-center">{{type4}}</p>
+                    <p class="fs-30 mb-2 text-center">{{type6}}</p>
+                    <p class="">Poucentage : {{statType6}}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -304,11 +461,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Médullaire</p>
-                    {% if type5 == 0 %}
+                    <p class="mb-8 text-center">PapilloVesiculaire</p>
+                    {% if type3 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
-                    <p class="fs-30 mb-2 text-center">{{type5}}</p>
+                    <p class="fs-30 mb-2 text-center">{{type3}}</p>
+                    <p class="">Poucentage : {{statType3}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -316,25 +475,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Anaplasique</p>
-                    {% if type6 == 0 %}
+                    <p class="mb-8 text-center">Médullaire</p>
+                    {% if type4 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
-                    <p class="fs-30 mb-2 text-center">{{type6}}</p>
-                    {% endif %}
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6 mb-4 stretch-card transparent">
-                <div class="card card-tale align-items-center justify-content-center">
-                  <div class="card-body ">
-                    <p class="mb-4">Autres</p>
-                    {% if type7 == 0 %}
-                    <p class="fs-30 mb-2 text-center">0</p>
-                    {% else %}
-                    <p class="fs-30 mb-2 text-center">{{type7}}</p>
+                    <p class="fs-30 mb-2 text-center">{{type4}}</p>
+                    <p class="">Poucentage : {{statType4}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -351,11 +498,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Tx</p>
+                    <p class="mb-8 text-center">Tx</p>
                     {% if clasTx == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasTx}}</p>
+                    <p class="">Poucentage : {{statTx}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -363,11 +512,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">T0</p>
+                    <p class="mb-8 text-center">T0</p>
                     {% if clasT0 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasT0}}</p>
+                    <p class="">Poucentage : {{statT0}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -377,11 +528,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card tale-bg align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">T2</p>
+                    <p class="mb-8 text-center">T2</p>
                     {% if clasT2 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasT2}}</p>
+                    <p class="">Poucentage : {{statT2}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -389,11 +542,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">T3a</p>
+                    <p class="mb-8 text-center">T3a</p>
                     {% if clasT3a == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasT3a}}</p>
+                    <p class="">Poucentage : {{statT3a}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -401,11 +556,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">T4b</p>
+                    <p class="mb-8 text-center">T4b</p>
                     {% if clasT4b == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasT4b}}</p>
+                    <p class="">Poucentage : {{statT4b}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -418,11 +575,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">T1a</p>
+                    <p class="mb-8 text-center">T1a</p>
                     {% if clasT1a == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasT1a}}</p>
+                    <p class="">Poucentage : {{statT1a}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -430,11 +589,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">T1b</p>
+                    <p class="mb-8 text-center">T1b</p>
                     {% if clasT1b == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasT1b}}</p>
+                    <p class="">Poucentage : {{statT1b}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -444,11 +605,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">T3a</p>
+                    <p class="mb-8 text-center">T3a</p>
                     {% if clasT3a == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasT3a}}</p>
+                    <p class="">Poucentage : {{statT3a}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -456,11 +619,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">T4a</p>
+                    <p class="mb-8 text-center">T4a</p>
                     {% if clasT4a == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasT4a}}</p>
+                    <p class="">Poucentage : {{statT4a}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -476,11 +641,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Nx</p>
+                    <p class="mb-8 text-center">Nx</p>
                     {% if clasNx == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasNx}}</p>
+                    <p class="">Poucentage : {{statNx}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -488,11 +655,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">N0</p>
+                    <p class="mb-8 text-center">N0</p>
                     {% if clasN0 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasN0}}</p>
+                    <p class="">Poucentage : {{statN0}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -505,11 +674,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">N1a</p>
+                    <p class="mb-8 text-center">N1a</p>
                     {% if clasN1a == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasN1a}}</p>
+                    <p class="">Poucentage : {{statN1a}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -517,11 +688,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">N1b</p>
+                    <p class="mb-8 text-center">N1b</p>
                     {% if clasN1b == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasN1b}}</p>
+                    <p class="">Poucentage : {{statN1b}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -537,11 +710,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Mx</p>
+                    <p class="mb-8 text-center">Mx</p>
                     {% if clasMx == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasMx}}</p>
+                    <p class="">Poucentage : {{statMx}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -549,11 +724,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">M0</p>
+                    <p class="mb-8 text-center">M0</p>
                     {% if clasM0 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasM0}}</p>
+                    <p class="">Poucentage : {{statM0}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -566,11 +743,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">M1</p>
+                    <p class="mb-8 text-center">M1</p>
                     {% if clasM1 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{clasM1}}</p>
+                    <p class="">Poucentage : {{statM1}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -586,11 +765,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Aucune</p>
+                    <p class="mb-8 text-center">Aucune</p>
                     {% if meta1 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{meta1}}</p>
+                    <p class="">Poucentage : {{statmeta1}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -598,11 +779,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Ganglionaire</p>
+                    <p class="mb-8 text-center">Ganglionaire</p>
                     {% if meta2 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{meta2}}</p>
+                    <p class="">Poucentage : {{statmeta2}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -612,11 +795,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card tale-bg align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Pulmonaire</p>
+                    <p class="mb-8 text-center">Pulmonaire</p>
                     {% if meta3 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{meta3}}</p>
+                    <p class="">Poucentage : {{statmeta3}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -624,11 +809,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Oseuse</p>
+                    <p class="mb-8 text-center">Oseuse</p>
                     {% if meta4 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{meta4}}</p>
+                    <p class="">Poucentage : {{statmeta4}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -641,11 +828,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Hépatique</p>
+                    <p class="mb-8 text-center">Hépatique</p>
                     {% if meta5 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{meta5}}</p>
+                    <p class="">Poucentage : {{statmeta5}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -653,11 +842,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Cérébrale</p>
+                    <p class="mb-8 text-center">Cérébrale</p>
                     {% if meta6 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{meta6}}</p>
+                    <p class="">Poucentage : {{statmeta6}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -667,11 +858,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Autres</p>
+                    <p class="mb-8 text-center">Autres</p>
                     {% if meta7 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{meta7}}</p>
+                    <p class="">Poucentage : {{statmeta7}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -687,11 +880,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">I</p>
+                    <p class="mb-8 text-center">I</p>
                     {% if stade1 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{stade1}}</p>
+                    <p class="">Poucentage : {{statStade1}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -699,11 +894,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">II</p>
+                    <p class="mb-8 text-center">II</p>
                     {% if stade2 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{stade2}}</p>
+                    <p class="">Poucentage : {{statStade2}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -713,11 +910,13 @@
               <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
                 <div class="card tale-bg align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">IVB</p>
+                    <p class="mb-8 text-center">IVB</p>
                     {% if stade5 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{stade5}}</p>
+                    <p class="">Poucentage : {{statStade5}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -729,11 +928,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">III</p>
+                    <p class="mb-8 text-center">III</p>
                     {% if stade3 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{stade3}}</p>
+                    <p class="">Poucentage : {{statStade3}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -741,11 +942,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">IVA</p>
+                    <p class="mb-8 text-center">IVA</p>
                     {% if stade4 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{stade4}}</p>
+                    <p class="">Poucentage : {{statStade4}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -761,11 +964,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Faible</p>
+                    <p class="mb-8 text-center">Faible</p>
                     {% if risque1 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{risque1}}</p>
+                    <p class="">Poucentage : {{statRisque1}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -773,11 +978,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Intermediaire</p>
+                    <p class="mb-8 text-center">Intermediaire</p>
                     {% if risque2 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{risque2}}</p>
+                    <p class="">Poucentage : {{statRisque2}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -790,11 +997,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Haut</p>
+                    <p class="mb-8 text-center">Haut</p>
                     {% if risque3 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{risque3}}</p>
+                    <p class="">Poucentage : {{statRisque3}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -810,11 +1019,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">1 temps</p>
+                    <p class="mb-8 text-center">1 temps</p>
                     {% if totalChir1 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{totalChir1}}</p>
+                    <p class="">Poucentage : {{statChir1}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -822,11 +1033,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">2 temps</p>
+                    <p class="mb-8 text-center">2 temps</p>
                     {% if totalChir2 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{totalChir2}}</p>
+                    <p class="">Poucentage : {{statChir2}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -839,11 +1052,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Curage</p>
+                    <p class="mb-8 text-center">Curage</p>
                     {% if totalChir3 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{totalChir3}}</p>
+                    <p class="">Poucentage : {{statChir3}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -859,11 +1074,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Moins de 5</p>
+                    <p class="mb-8 text-center">Moins de 5</p>
                     {% if nbrCur1 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{nbrCur1}}</p>
+                    <p class="">Poucentage : {{statCur1}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -871,11 +1088,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">5 à 10</p>
+                    <p class="mb-8 text-center">5 à 10</p>
                     {% if nbrCur2 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{nbrCur2}}</p>
+                    <p class="">Poucentage : {{statCur2}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -888,11 +1107,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Plus de 10</p>
+                    <p class="mb-8 text-center">Plus de 10</p>
                     {% if nbrCur3 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{nbrCur3}}</p>
+                    <p class="">Poucentage : {{statCur3}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -908,11 +1129,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-tale align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">Moins de 200</p>
+                    <p class="mb-8 text-center">Moins de 200</p>
                     {% if activite1 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{activite1}}</p>
+                    <p class="">Poucentage : {{statActivite1}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -920,11 +1143,29 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-dark-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">200 à 300</p>
+                    <p class="mb-8 text-center">200 à 300</p>
                     {% if activite2 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{activite2}}</p>
+                    <p class="">Poucentage : {{statActivite2}} % </p>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                <div class="card tale-bg align-items-center justify-content-center">
+                  <div class="card-body ">
+                    <p class="mb-8 text-center">Plus de 1000</p>
+                    {% if activite5 == 0 %}
+                    <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
+                    {% else %}
+                    <p class="fs-30 mb-2 text-center">{{activite5}}</p>
+                    <p class="">Poucentage : {{statActivite5}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -937,11 +1178,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-blue align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">300 à 400</p>
+                    <p class="mb-8 text-center">300 à 400</p>
                     {% if activite3 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{activite3}}</p>
+                    <p class="">Poucentage : {{statActivite3}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -949,11 +1192,13 @@
               <div class="col-md-6 mb-4 stretch-card transparent">
                 <div class="card card-light-danger align-items-center justify-content-center">
                   <div class="card-body ">
-                    <p class="mb-4">500 et plus</p>
+                    <p class="mb-8 text-center">500 à 1000</p>
                     {% if activite4 == 0 %}
                     <p class="fs-30 mb-2 text-center">0</p>
+                    <p class="">Poucentage : 00 % </p>
                     {% else %}
                     <p class="fs-30 mb-2 text-center">{{activite4}}</p>
+                    <p class="">Poucentage : {{statActivite4}} % </p>
                     {% endif %}
                   </div>
                 </div>
@@ -961,6 +1206,7 @@
             </div>
           </div>
         </div>
+
 
       {% endif %}
 
