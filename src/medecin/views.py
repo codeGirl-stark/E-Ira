@@ -392,7 +392,17 @@ def stat (request) :
 
 
 def deconnect(request) :
+    date = datetime.now()
+    
     medecin_actif = get_object_or_404(Medecin, is_active=True)
     medecin_actif.is_active = False
     medecin_actif.save()
+    
+    log = Log(
+        date = date,
+        libelle = "Déconnexion",
+        medecin = medecin_actif,
+    )
+    log.save()
+    
     return redirect('connect')
