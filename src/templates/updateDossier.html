@@ -105,18 +105,7 @@
                 <label for="decouverte">Age de découverte :</label>
                 <input class="form-control" type="number" id="Naissance" name="ageDecouverte" value={{dossier.ageDecouverte}}>
             </div>
-            <div class="col">
-                <label for="select">Circonstances de découverte :</label>
-                <select  name="circonstance" class="form-control" id="select" >
-                <option value="">Choisir</option>
-                  <option value="Nodule" {% if dossier.circonstance == 'Nodule' %}selected{% endif %}>Nodule</option>
-                  <option value="Decouverte fortuite" {% if dossier.circonstance == 'Decouverte fortuite' %}selected{% endif %}>Découverte fortuite</option>  
-                  <option value="GMN" {% if dossier.circonstance == 'GNM' %}selected{% endif %}>GMN</option>
-                  <option value="ADP" {% if dossier.circonstance == 'ADP' %}selected{% endif %}>ADP</option>
-                  <option value="Metastase" {% if dossier.circonstance == 'Metastase' %}selected{% endif %}>Métastase</option>
-                  <option value="Autres" {% if dossier.circonstance == 'Autres' %}selected{% endif %}>Autres</option>
-                </select>
-            </div>
+
             <div class="col">
                 <label for="select">Type histologique :</label>
                 <select  name="typeHisto" class="form-control" id="select" required>
@@ -130,6 +119,89 @@
                 </select>
             </div>
         </div>
+
+        <h5>Circonstances de découverte</h5>
+        <div class="form-row form-group">
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.Nodule %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Nodule" class="form-check-input" checked>Nodule
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="Nodule" class="form-check-input" >Nodule
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.DecouverteFortuite %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="DecouverteFortuite" class="form-check-input" checked>DécouverteFortuite
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="DecouverteFortuite" class="form-check-input" >DécouverteFortuite
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.gnm %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="gnm" class="form-check-input" checked>GNM
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="gnm" class="form-check-input" >GNM
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.adp %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="adp" class="form-check-input" checked>ADP
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="adp" class="form-check-input" >ADP
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.Metastase %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Metastase" class="form-check-input" checked>Métastase
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="Metastase" class="form-check-input" >Métastase
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.AutresCir %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="AutresCir" class="form-check-input" checked>Autres
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="AutresCir" class="form-check-input" >Autres
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
         <h5>Classifications</h5>
         <div class="form-row form-group">
             <div class="col">
@@ -210,7 +282,7 @@
         </div>
         <div class="form-row form-group">
             <div class="col">
-                <label for="tel">Embon vasculaire :</label>
+                <label for="tel">Embole vasculaire :</label>
                 <div class="col-md-6">
                     <div class="form-group">
                         {% if dossier.embonVasculaire == "oui" %}
@@ -243,19 +315,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <label for="select">Metastase :</label>
-                <select  name="metastase" class="form-control" id="select" >
-                    <option value="">Choisir</option>
-                    <option value="Aucune" {% if dossier.metastase == 'Aucune' %}selected{% endif %}>Aucune</option>
-                    <option value="Ganglionaire" {% if dossier.metastase == 'Ganglionaire' %}selected{% endif %}>Ganglionaire</option>
-                    <option value="Pulmonaire" {% if dossier.metastase == 'Pulmonaire' %}selected{% endif %}>Pulmonaire</option>
-                    <option value="Oseuse" {% if dossier.metastase == 'Oseuse' %}selected{% endif %}>Oseuse</option>
-                    <option value="Hepatique" {% if dossier.metastase == 'Hepatique' %}selected{% endif %}>Hépatique</option>
-                    <option value="Cerebrale" {% if dossier.metastase == 'Cerebrale' %}selected{% endif %}>Cérébrale</option>
-                    <option value="Autre" {% if dossier.metastase == 'Autre' %}selected{% endif %}>Autre</option>
-                </select>
-            </div>
+            
             <div class="col">
                 <label for="select">Stade:</label>
                 <select  name="stade" class="form-control" id="select" >
@@ -278,7 +338,146 @@
             </div>
         </div>
 
+        <h5>Métastase</h5>
+        <div class="form-row form-group">
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.Aucune %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Aucune" class="form-check-input" checked>Aucune
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="Aucune" class="form-check-input" >Aucune
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.Ganglionaire %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Ganglionaire" class="form-check-input" checked>Ganglionaire
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="Ganglionaire" class="form-check-input" >Ganglionaire
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.Pulmonaire %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Pulmonaire" class="form-check-input" checked>Pulmonaire
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="Pulmonaire" class="form-check-input" >Pulmonaire
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.Oseuse %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Oseuse" class="form-check-input" checked>Oseuse
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="Oseuse" class="form-check-input" >Oseuse
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.Hepatique %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Hepatique" class="form-check-input" checked>Hépatique
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="Hepatique" class="form-check-input" >Hépatique
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.Cerebrale %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Cerebrale" class="form-check-input" checked>Cérébrale
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="Cerebrale" class="form-check-input" >Cérébrale
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.AutresMeta %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="AutresMeta" class="form-check-input" checked>Autres
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="AutresMeta" class="form-check-input" >Autres
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
         <h4>Traitements</h4>
+
+        <h5>Totalisation Chirugicale</h5>
+        <div class="form-row form-group">
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.temps1 %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="temps1" class="form-check-input" checked>1 temps
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="temps1" class="form-check-input" >1 temps
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.temps2 %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="temps2" class="form-check-input" checked>2 temps
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="temps2" class="form-check-input" >2 temps
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    {% if dossier.curage %}
+                    <label class="form-check-label">
+                      <input type="checkbox" name="curage" class="form-check-input" checked>Curage
+                    </label>
+                    {% else %}
+                    <label class="form-check-label">
+                        <input type="checkbox" name="curage" class="form-check-input" >Curage
+                    </label>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
         <div class="form-row form-group">
             <div class="col">
                 <label for="select">Totalisation Chirugicale:</label>
@@ -469,7 +668,7 @@
                 <textarea class="form-control" name="consigne" id="Consignes" rows="4" >{{dossier.consigne}}</textarea>            
             </div>
             <div class="col">
-                <label for="tel">Réfractère :</label>
+                <label for="tel">Réfractaire :</label>
                 <div class="form-group">
                     {% if dossier.refrac == "oui" %}
                         <div class="form-check">

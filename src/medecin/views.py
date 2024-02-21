@@ -1,4 +1,6 @@
 from datetime import datetime
+import os
+from pathlib import Path
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from dossier.models import DossierMedical
@@ -11,6 +13,10 @@ from medecin.models import Medecin
 def connect(request) :
     date = datetime.now()   
     if request.method == "POST" :
+        medecin_en_ligne = Medecin.objects.filter(is_active=True).first()
+        if medecin_en_ligne :
+            medecin_en_ligne.is_active = False
+            medecin_en_ligne.save()
         username = request.POST.get('username')
         password = request.POST.get('password')
         medecin = get_object_or_404(Medecin, username=username)
@@ -20,7 +26,7 @@ def connect(request) :
             medecin.save()
             log = Log(
                 date = date,
-                libelle = "Connexion",
+                libelle = f"{username} s'est connectée",
                 medecin = medecin,
             )
             log.save()
@@ -85,17 +91,17 @@ def stat (request) :
     statAgedec6 = int((agedec6 / patients) * 100)
     
     #compte par circonstances
-    circonstances1 = DossierMedical.objects.filter(medecin=medecin.id, circonstance="Nodule").count()
+    circonstances1 = DossierMedical.objects.filter(medecin=medecin.id, Nodule="on").count()
     statci1 = int((circonstances1 / patients) * 100)
-    circonstances2 = DossierMedical.objects.filter(medecin=medecin.id, circonstance="Decouverte fortuite").count()
+    circonstances2 = DossierMedical.objects.filter(medecin=medecin.id, DecouverteFortuite="on").count()
     statci2 = int((circonstances2 / patients) * 100)
-    circonstances3 = DossierMedical.objects.filter(medecin=medecin.id, circonstance="GMN").count()
+    circonstances3 = DossierMedical.objects.filter(medecin=medecin.id, gnm="on").count()
     statci3 = int((circonstances3 / patients) * 100)
-    circonstances4 = DossierMedical.objects.filter(medecin=medecin.id, circonstance="ADP").count()
+    circonstances4 = DossierMedical.objects.filter(medecin=medecin.id, adp="on").count()
     statci4 = int((circonstances4 / patients) * 100)
-    circonstances5 = DossierMedical.objects.filter(medecin=medecin.id, circonstance="Metastase").count()
+    circonstances5 = DossierMedical.objects.filter(medecin=medecin.id, Metastase="on").count()
     statci5 = int((circonstances5 / patients) * 100)
-    circonstances6 = DossierMedical.objects.filter(medecin=medecin.id, circonstance="Autres").count()
+    circonstances6 = DossierMedical.objects.filter(medecin=medecin.id, AutresCir="on").count()
     statci6 = int((circonstances6 / patients) * 100)
     
     #compte par type hostoligique 
@@ -151,19 +157,19 @@ def stat (request) :
     statM1 = int((clasM1 / patients) * 100)
 
     #compte par métastase
-    meta1 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Aucune").count()
+    meta1 = DossierMedical.objects.filter(medecin=medecin.id, Aucune="on").count()
     statmeta1 = int((meta1 / patients) * 100)
-    meta2 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Ganglionaire").count()
+    meta2 = DossierMedical.objects.filter(medecin=medecin.id, Ganglionaire="on").count()
     statmeta2 = int((meta2 / patients) * 100)
-    meta3 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Pulmonaire").count()
+    meta3 = DossierMedical.objects.filter(medecin=medecin.id, Pulmonaire="on").count()
     statmeta3 = int((meta3 / patients) * 100)
-    meta4 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Oseuse").count()
+    meta4 = DossierMedical.objects.filter(medecin=medecin.id, Oseuse="on").count()
     statmeta4 = int((meta4 / patients) * 100)
-    meta5 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Hepatique").count()
+    meta5 = DossierMedical.objects.filter(medecin=medecin.id, Hepatique="on").count()
     statmeta5 = int((meta5 / patients) * 100)
-    meta6 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Cerebrale").count()
+    meta6 = DossierMedical.objects.filter(medecin=medecin.id, Cerebrale="on").count()
     statmeta6 = int((meta6 / patients) * 100)
-    meta7 = DossierMedical.objects.filter(medecin=medecin.id, metastase="Autres").count()
+    meta7 = DossierMedical.objects.filter(medecin=medecin.id, AutresMeta="on").count()
     statmeta7 = int((meta7 / patients) * 100)
     
     #compte par stade
@@ -187,11 +193,11 @@ def stat (request) :
     statRisque3 = int((risque3 / patients) * 100)
 
     #compte par totalisation chirugicale
-    totalChir1 = DossierMedical.objects.filter(medecin=medecin.id, totalChir="1 temps").count()
+    totalChir1 = DossierMedical.objects.filter(medecin=medecin.id, temps1="on").count()
     statChir1 = int((totalChir1 / patients) * 100)
-    totalChir2 = DossierMedical.objects.filter(medecin=medecin.id, totalChir="2 temps").count()
+    totalChir2 = DossierMedical.objects.filter(medecin=medecin.id, temps2="on").count()
     statChir2 = int((totalChir2 / patients) * 100)
-    totalChir3 = DossierMedical.objects.filter(medecin=medecin.id, totalChir="curage").count()
+    totalChir3 = DossierMedical.objects.filter(medecin=medecin.id, curage="on").count()
     statChir3 = int((totalChir3 / patients) * 100)
 
 
@@ -389,6 +395,7 @@ def stat (request) :
     }
 
     return render(request, 'stat.html', context)
+
 
 
 def deconnect(request) :

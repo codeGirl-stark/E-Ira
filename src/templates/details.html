@@ -111,18 +111,8 @@
           </div>
             
           <h4>Traitements</h4>
-          {% if dossier.totalChir or dossier.nbrCure or dossier.activiteCumule or dossier.thera %}
+          {% if dossier.nbrCure or dossier.activiteCumule or dossier.thera %}
           <div class="form-row form-group">
-            {% if dossier.totalChir %}
-            <div class="col">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                  <li class="breadcrumb-item">Totalisations chirugicales</li>
-                  <li class="breadcrumb-item active" aria-current="page">{{ dossier.totalChir }}</li>
-                </ol>
-              </nav>         
-            </div>
-            {% endif %}
             {% if dossier.nbrCure %}
             <div class="col">
               <nav aria-label="breadcrumb">
@@ -153,8 +143,29 @@
               </nav>
             </div>
             {% endif %}
-        </div>
-        {% endif %}
+          </div>
+          {% endif %}
+
+          {% if dossier.temps1 or dossier.temps2 or dossier.curage %}
+            <h5>Totalisations Chirugicales</h5>
+            <div class="form-row form-group">
+              <div class="col">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    {% if dossier.temps1 %}
+                    <li class="breadcrumb-item active" aria-current="page">1 temps</li>
+                    {% endif %}
+                    {% if dossier.temps2 %}
+                    <li class="breadcrumb-item active" aria-current="page">2 temps</li>
+                    {% endif %}
+                    {% if dossier.curage %}
+                    <li class="breadcrumb-item active" aria-current="page">Curage</li>
+                    {% endif %}
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            {% endif %}
 
         <h5>Cures</h5>
         {% if dossier.cure1 or dossier.cure2 or dossier.cure3 or dossier.cure4 or dossier.cure5 or dossier.cure6 or dossier.cure7 or dossier.cure8 or dossier.cure9 or dossier.cure10 %}
@@ -566,7 +577,7 @@
           <div class="card-body">
             <p class="card-title">Diagnostic</p>
 
-            {% if dossier.ageDecouverte or dossier.circonstance %}
+            {% if dossier.ageDecouverte %}
             <div class="form-row form-group">
               {% if dossier.ageDecouverte %}
               <div class="col">
@@ -578,18 +589,38 @@
                 </nav>
               </div>
               {% endif %}
-              {% if dossier.circonstance %}
+            </div>
+            {% endif %}
+
+            {% if dossier.Nodule or dossier.DecouverteFortuite or dossier.gnm or  dossier.adp or dossier.Metastase or dossier.AutresCir %}
+            <h5>Circonstances de découverte</h5>
+            <div class="form-row form-group">
               <div class="col">
                 <nav aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item">CDD</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.circonstance }}</li>
+                    {% if dossier.Nodule %}
+                    <li class="breadcrumb-item active" aria-current="page">Nodule</li>
+                    {% endif %}
+                    {% if dossier.DecouverteFortuite %}
+                    <li class="breadcrumb-item active" aria-current="page">Découverte Fortuite</li>
+                    {% endif %}
+                    {% if dossier.gnm %}
+                    <li class="breadcrumb-item active" aria-current="page">GNM</li>
+                    {% endif %}
+                    {% if dossier.adp %}
+                    <li class="breadcrumb-item active" aria-current="page">ADP</li>
+                    {% endif %}
+                    {% if dossier.Metastase %}
+                    <li class="breadcrumb-item active" aria-current="page">Métastase</li>
+                    {% endif %}
+                    {% if dossier.AutresCir %}
+                    <li class="breadcrumb-item active" aria-current="page">Autres circonstances</li>
+                    {% endif %}
                   </ol>
                 </nav>
               </div>
-              {% endif %}
-          </div>
-          {% endif %}
+            </div>
+            {% endif %}
 
           
           <div class="form-row form-group">
@@ -637,7 +668,7 @@
           <div class="col">
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item">Embon vasculaire</li>
+                <li class="breadcrumb-item">Embole vasculaire</li>
                 <li class="breadcrumb-item active" aria-current="page">{{ dossier.embonVasculaire }}</li>
               </ol>
             </nav>
@@ -647,18 +678,8 @@
         {% endif %}
 
 
-        {% if dossier.metastase or dossier.stade or dossier.risque %}
-        <div class="form-row form-group">
-          {% if dossier.metastase %}
-          <div class="col">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">Metastase</li>
-                    <li class="breadcrumb-item active" aria-current="page">{{ dossier.metastase }}</li>
-                  </ol>
-                </nav>
-          </div>
-          {% endif %}
+        {% if dossier.stade or dossier.risque %}
+        <div class="form-row form-group"> 
           {% if dossier.stade %}
           <div class="col">
                 <nav aria-label="breadcrumb">
@@ -681,6 +702,39 @@
           {% endif %}
         </div>
         {% endif %}
+
+        {% if dossier.Aucune or dossier.Ganglionaire or dossier.Pulmonaire or  dossier.Oseuse or dossier.Hepatique or dossier.Cerebrale or dossier.AutresMeta %}
+            <h5>Métastase</h5>
+            <div class="form-row form-group">
+              <div class="col">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb">
+                    {% if dossier.Aucune %}
+                    <li class="breadcrumb-item active" aria-current="page">Aucune</li>
+                    {% endif %}
+                    {% if dossier.Ganglionaire %}
+                    <li class="breadcrumb-item active" aria-current="page">Ganglionaire</li>
+                    {% endif %}
+                    {% if dossier.Pulmonaire %}
+                    <li class="breadcrumb-item active" aria-current="page">Pulmonaire</li>
+                    {% endif %}
+                    {% if dossier.Oseuse %}
+                    <li class="breadcrumb-item active" aria-current="page">Oseuse</li>
+                    {% endif %}
+                    {% if dossier.Hepatique %}
+                    <li class="breadcrumb-item active" aria-current="page">Hépatique</li>
+                    {% endif %}
+                    {% if dossier.Cerebrale %}
+                    <li class="breadcrumb-item active" aria-current="page">Cérébrale</li>
+                    {% endif %}
+                    {% if dossier.AutresMeta %}
+                    <li class="breadcrumb-item active" aria-current="page">Autres</li>
+                    {% endif %}
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            {% endif %}
 
             <p class="card-title">Résumé et Consignes</p>
             <div class="d-flex justify-content-between">
@@ -718,7 +772,7 @@
             {% endif %}
 
             <div class="d-flex justify-content-between">
-              <h4>Réfractère</h4>
+              <h4>Réfractaire</h4>
             </div>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">

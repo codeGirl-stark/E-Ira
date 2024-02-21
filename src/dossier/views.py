@@ -45,7 +45,12 @@ def addDossier (request) :
             antecedent = request.POST.get('antecedent')
             carcinome = request.POST.get('carcinome')
             ageDecouverte = request.POST.get('ageDecouverte')
-            circonstance = request.POST.get('circonstance')
+            Nodule = request.POST.get('Nodule')
+            DecouverteFortuite = request.POST.get('DecouverteFortuite')
+            gnm = request.POST.get('gnm')
+            adp = request.POST.get('adp')
+            Metastase = request.POST.get('Metastase')
+            AutresCir = request.POST.get('AutresCir')
             anteFamiliaux = request.POST.get('anteFamiliaux')
             typeHisto = request.POST.get('typeHisto')
             clasT = request.POST.get('clasT')
@@ -54,10 +59,18 @@ def addDossier (request) :
             multifoc = request.POST.get('multifoc')
             effraCapsulaire = request.POST.get('effraCapsulaire')
             embonVasculaire = request.POST.get('embonVasculaire')
-            metastase = request.POST.get('metastase')
+            Aucune = request.POST.get('Aucune')
+            Ganglionaire = request.POST.get('Ganglionaire')
+            Pulmonaire = request.POST.get('Pulmonaire')
+            Oseuse = request.POST.get('Oseuse')
+            Hepatique = request.POST.get('Hepatique')
+            Cerebrale = request.POST.get('Cerebrale')
+            AutresMeta = request.POST.get('AutresMeta')
             stade = request.POST.get('stade')
             risque = request.POST.get('risque')
-            totalChir = request.POST.get('totalChir')
+            temps1 = request.POST.get('temps1')
+            temps2 = request.POST.get('temps2')
+            curage = request.POST.get('curage')
             nbrCure = request.POST.get('nbrCure')
             activiteCumule = request.POST.get('activiteCumule')
             thera = request.POST.get('thera')
@@ -119,7 +132,12 @@ def addDossier (request) :
                         carcinome = carcinome,
                         anteFamiliaux = anteFamiliaux,
                         ageDecouverte = ageDecouverte,
-                        circonstance = circonstance,
+                        Nodule = Nodule,
+                        DecouverteFortuite = DecouverteFortuite,
+                        gnm = gnm,
+                        adp = adp,
+                        Metastase = Metastase,
+                        AutresCir = AutresCir,
                         typeHisto = typeHisto,
                         clasT = clasT,
                         clasN = clasN,
@@ -127,10 +145,18 @@ def addDossier (request) :
                         multifoc = multifoc,
                         effraCapsulaire= effraCapsulaire,
                         embonVasculaire = embonVasculaire,
-                        metastase = metastase, 
+                        Aucune = Aucune, 
+                        Ganglionaire = Ganglionaire,
+                        Pulmonaire = Pulmonaire,
+                        Oseuse = Oseuse,
+                        Hepatique = Hepatique,
+                        Cerebrale = Cerebrale,
+                        AutresMeta = AutresMeta,
                         stade = stade,
                         risque = risque,
-                        totalChir = totalChir,
+                        temps1 = temps1,
+                        temps2 = temps2,
+                        curage = curage,
                         nbrCure = nbrCure, 
                         activiteCumule = activiteCumule,
                         thera =thera,
@@ -177,7 +203,7 @@ def addDossier (request) :
                     
                     log = Log(
                         date = day,
-                        libelle = f"Enregistrement de dossier du pateint {identite}",
+                        libelle = f"{medecin_actif.username} a enregistré le dossier du patient {identite}",
                         medecin = medecin_actif,
                     )
                     log.save()
@@ -222,7 +248,7 @@ def delete(request,id) :
     dossier.delete()
     log = Log(
         date = date,
-        libelle = f"Suppresion du dossier du patient {dossier.identite}",
+        libelle = f"{medecin.username} a supprimé le dossier du patient {dossier.identite}",
         medecin = medecin,
     )
     log.save()
@@ -266,15 +292,32 @@ def update(request, id) :
         antecedent = request.POST.get('antecedent')
         carcinome = request.POST.get('carcinome')
         ageDecouverte = request.POST.get('ageDecouverte')
-        circonstance = request.POST.get('circonstance')
+        Nodule = request.POST.get('Nodule')
+        DecouverteFortuite = request.POST.get('DecouverteFortuite')
+        gnm = request.POST.get('gnm')
+        adp = request.POST.get('adp')
+        Metastase = request.POST.get('Metastase')
+        AutresCir = request.POST.get('AutresCir')
+        anteFamiliaux = request.POST.get('anteFamiliaux')
         typeHisto = request.POST.get('typeHisto')
         clasT = request.POST.get('clasT')
         clasN = request.POST.get('clasN')
         clasM = request.POST.get('clasM')
-        metastase = request.POST.get('metastase')
+        multifoc = request.POST.get('multifoc')
+        effraCapsulaire = request.POST.get('effraCapsulaire')
+        embonVasculaire = request.POST.get('embonVasculaire')
+        Aucune = request.POST.get('Aucune')
+        Ganglionaire = request.POST.get('Ganglionaire')
+        Pulmonaire = request.POST.get('Pulmonaire')
+        Oseuse = request.POST.get('Oseuse')
+        Hepatique = request.POST.get('Hepatique')
+        Cerebrale = request.POST.get('Cerebrale')
+        AutresMeta = request.POST.get('AutresMeta')
         stade = request.POST.get('stade')
         risque = request.POST.get('risque')
-        totalChir = request.POST.get('totalChir')
+        temps1 = request.POST.get('temps1')
+        temps2 = request.POST.get('temps2')
+        curage = request.POST.get('curage')
         nbrCure = request.POST.get('nbrCure')
         activiteCumule = request.POST.get('activiteCumule')
         cure1 = request.POST.get('cure1')
@@ -325,15 +368,26 @@ def update(request, id) :
         dossier.antecedent = antecedent
         dossier.carcinome = carcinome
         dossier.ageDecouverte = ageDecouverte
-        dossier.circonstance = circonstance
+        dossier.Nodule = Nodule
+        dossier.DecouverteFortuite = DecouverteFortuite
+        dossier.gnm = gnm
+        dossier.adp = adp
+        dossier.Metastase = Metastase
+        dossier.AutresCir = AutresCir
         dossier.typeHisto = typeHisto
         dossier.clasT = clasT
         dossier.clasN = clasN
         dossier.clasM = clasM
-        dossier.metastase = metastase
-        dossier.stade = stade
+        dossier.Aucune = Aucune
+        dossier.Ganglionaire = Ganglionaire
+        dossier.Pulmonaire =Oseuse
+        dossier.Hepatique = Hepatique
+        dossier.Cerebrale = Cerebrale
+        dossier.AutresMeta = AutresMeta
         dossier.risque = risque
-        dossier.totalChir = totalChir
+        dossier.temps1 = temps1
+        dossier.temps2 = temps2
+        dossier.curage = curage
         dossier.nbrCure = nbrCure
         dossier.activiteCumule = activiteCumule
         dossier.cure1 = cure1
@@ -377,7 +431,7 @@ def update(request, id) :
         
         log = Log(
             date = day,
-            libelle = f"Modification du dossier du patient {identite}",
+            libelle = f"{medecin.username} a modifé le dossier du patient {identite}",
             medecin = medecin,
         )
         log.save()
@@ -422,7 +476,7 @@ def search (request) :
         
         log = Log(
             date = date,
-            libelle = "Recherche",
+            libelle = f"{medecin.username} a éffectué une recherche sur {recherche}",
             medecin = medecin,
         )
         log.save()
@@ -454,7 +508,7 @@ def rechercheVisite (request) :
             
             log = Log(
             date = date,
-            libelle = f"Recherche des visites du {date_recherchee}",
+            libelle = f"{medecin.username} a recherché les visites du {date_recherchee}",
             medecin = medecin,
             )
             log.save()
@@ -501,7 +555,7 @@ def export_to_csv (request) :
     
     log = Log(
         date = date,
-        libelle = "Téléchargement de la base de données sous format CSV",
+        libelle = f"{medecin.username} a téléchargé la base de données sous format CSV",
         medecin = medecin,
         )
     log.save()
@@ -532,7 +586,7 @@ def export_to_sqlite(request):
     
     log = Log(
         date = date,
-        libelle = "Téléchargement de la base de données sous format Sqlite",
+        libelle = f"{medecin.username} a téléchargé la base de données sous format Sqlite",
         medecin = medecin,
         )
     log.save()

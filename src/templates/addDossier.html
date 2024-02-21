@@ -88,18 +88,7 @@
                 <label for="decouverte">Age de découverte :</label>
                 <input class="form-control" type="number" id="decouverte" name="ageDecouverte" value=0>
             </div>
-            <div class="col">
-                <label for="select">Circonstances de découverte :</label>
-                <select  name="circonstance" class="form-control" id="select" >
-                <option value="">Choisir</option>
-                  <option value="Nodule">Nodule</option>
-                  <option value="Decouverte fortuite">Découverte fortuite</option>
-                  <option value="GMN">GMN</option>
-                  <option value="ADP">ADP</option>
-                  <option value="Metastase">Métastase</option>
-                  <option value="Autres">Autres</option>
-                </select>
-            </div>
+            
             <div class="col">
                 <label for="select">Type histologique :</label>
                 <select  name="typeHisto" class="form-control" id="select" required>
@@ -113,6 +102,53 @@
                 </select>
             </div>
         </div>
+
+        <h5>Circonstances de découverte</h5>
+        <div class="form-row form-group">
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Nodule" class="form-check-input">Nodule
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="DecouverteFortuite" class="form-check-input">DécouverteFortuite
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="gnm" class="form-check-input">GMN
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="adp" class="form-check-input">ADP
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Metastase" class="form-check-input">Métastase
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="AutresCir" class="form-check-input">Autres
+                    </label>
+                </div>
+            </div>
+        </div>
+
         <h5>Classifications</h5>
         <div class="form-row form-group">
             <div class="col">
@@ -180,7 +216,7 @@
         </div>
         <div class="form-row form-group">
             <div class="col">
-                <label for="tel">Embon vasculaire :</label>
+                <label for="tel">Embole vasculaire :</label>
                 <div class="col-md-6">
                     <div class="form-group">
                         <div class="form-check">
@@ -198,19 +234,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <label for="select">Metastase :</label>
-                <select  name="metastase" class="form-control" id="select" >
-                    <option value="">Choisir</option>
-                    <option value="Aucune">Aucune</option>
-                    <option value="Ganglionaire">Ganglionaire</option>
-                    <option value="Pulmonaire">Pulmonaire</option>
-                    <option value="Oseuse">Oseuse</option>
-                    <option value="Hepatique">Hépatique</option>
-                    <option value="Cerebrale">Cérébrale</option>
-                    <option value="Autre">Autre</option>
-                </select>
-            </div>
+            
             <div class="col">
                 <label for="select">Stade:</label>
                 <select  name="stade" class="form-control" id="select" >
@@ -232,18 +256,88 @@
                 </select>
             </div>
         </div>
-
-        <h4>Traitements</h4>
+        
+        <h5>Métastase</h5>
         <div class="form-row form-group">
             <div class="col">
-                <label for="select">Totalisation Chirugicale :</label>
-                <select  name="totalChir" class="form-control" id="select" >
-                    <option value="">Choisir</option>
-                    <option value="1 temps">1 Temps</option>
-                    <option value="2 temps">2 Temps</option>
-                    <option value="Curage">Curage</option>
-                </select>
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Aucune" class="form-check-input">Aucune
+                    </label>
+                </div>
             </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Ganglionaire" class="form-check-input">Ganglionaire
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Pulmonaire" class="form-check-input">Pulmonaire
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Oseuse" class="form-check-input">Oseuse
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Hepatique" class="form-check-input">Hépatique
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="Cerebrale" class="form-check-input">Cérébrale
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="AutresMeta" class="form-check-input">Autres
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <h4>Traitements</h4>
+
+        <h5>Totalisation Chirugicale</h5>
+        <div class="form-row form-group">
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="temps1" class="form-check-input">1 temps
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="temps2" class="form-check-input">2 temps
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" name="curage" class="form-check-input">Curage
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-row form-group">
             <div class="col">
                 <label for="decouverte">Nombre de Cures :</label>
                 <input class="form-control" type="number" id="decouverte" name="nbrCure" value=0>
@@ -423,7 +517,7 @@
                 <textarea class="form-control" name="consigne" id="Consignes" rows="4" ></textarea>
             </div>
             <div class="col">
-                <label for="tel">Réfractère :</label>
+                <label for="tel">Réfractaire :</label>
                 <div class="col-md-6">
                     <div class="form-group">
                         <div class="form-check">
